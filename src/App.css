@@ -1,3 +1,19 @@
+/* hero */
+.hero {
+  background-image: url(https://s3.eu-west-2.amazonaws.com/byggservice/photos/images/000/009/247/large/Tips_sta%CC%88dning_hemma.jpg?1612261890);
+  /* background-image:  url(../../../assets/bilder/clean-apartment.jpg); */
+  background-size: cover;
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+@media (max-width: 1024px) {
+  .hero {
+    height: 80%;
+  }
+}
 /* secion1 */
 .section1-rubrik {
   text-align: center;
@@ -91,3 +107,17 @@
 .section3-text {
   text-align: center;
 }
+Button {
+  width: 100px;
+  background-color: cornsilk;
+}
+
+/* Footer */
+/* .footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+} */
+
+
