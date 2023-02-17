@@ -1,10 +1,8 @@
 const Hero = () => {
-  return (<div className="hero">hero
-  {/* <div className="hero-img">
-    <p>FÅR INTE HERO IMG ATT FUNKA!</p>
-  </div> */}
-  
-  </div>
-  )
+  return (
+    <div className="hero">
+      <img src="./Images/clean-apartment.jpg" alt="" style={{ width: 100 }} />
+    </div>
+  );
 };
 export default Hero;

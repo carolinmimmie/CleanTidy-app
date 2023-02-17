@@ -1,6 +1,6 @@
 /* hero */
 .hero {
-  background-image: url(https://s3.eu-west-2.amazonaws.com/byggservice/photos/images/000/009/247/large/Tips_sta%CC%88dning_hemma.jpg?1612261890);
+  background-image: url(./Images/clean-apartment.jpg);
   /* background-image:  url(../../../assets/bilder/clean-apartment.jpg); */
   background-size: cover;
   height: 800px;
@@ -120,4 +120,8 @@ Button {
   padding: 1rem;
 } */
 
-
+.my-pages {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
