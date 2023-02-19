@@ -3,7 +3,7 @@ import React from "react";
 const Section2 = () => {
   return (
     <div className="section2">
-      <h3 className = "section2-rubrik">Varför välja städaFint?</h3>
+      <h3 className="rubrik">Varför välja städaFint?</h3>
       <div className="cirklarna">
         <div className="cirkel1">
           <div className="cirkel">
@@ -13,8 +13,8 @@ const Section2 = () => {
               alt="icon-bild händer som tar i hand"
             />
           </div>
-          <h4 className="section2-underrubrik">Registrera dig</h4>
-          <p className="section2-text">
+          <h4 className="underrubrik">Registrera dig</h4>
+          <p className="cirkel-text">
             Genom att registrera dig hos oss kan du smidigt boka dina tjänster.
           </p>
         </div>
@@ -27,8 +27,8 @@ const Section2 = () => {
               alt="Icon-bild sörsäkring"
             />
           </div>
-          <h4 className="section2-underrubrik">Logga in</h4>
-          <p className="section2-text">
+          <h4 className="underrubrik">Logga in</h4>
+          <p className="cirkel-text">
             Logga in och få tillgång till personliga erbjudanden.
           </p>
         </div>
@@ -41,8 +41,8 @@ const Section2 = () => {
               alt="icon-bild på ett hem"
             />
           </div>
-          <h4 className="section2-underrubrik">Boka</h4>
-          <p className="section2-text">
+          <h4 className="underrubrik">Boka</h4>
+          <p className="cirkel-text">
             Under mina sidor bokar/avbokar du smidigt en ny städning hos oss.
           </p>
         </div>

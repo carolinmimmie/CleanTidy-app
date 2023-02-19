@@ -1,7 +1,6 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
@@ -23,7 +22,7 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ["Tjänster", "Mina sidor", "Logga in"];
+const navItems = ["Tjänster", "Logga in"];
 
 const Nav = (props: Props) => {
   const { window } = props;
@@ -55,9 +54,14 @@ const Nav = (props: Props) => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex" }} style={{ backgroundColor: "white" }}>
       {/* <CssBaseline /> */}
-      <AppBar component="nav">
+      <AppBar
+        component="nav"
+        sx={{
+          bgcolor: " #f5f4f2", // use summary background color
+        }}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -71,13 +75,16 @@ const Nav = (props: Props) => {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", sm: "block", color: "black" },
+            }}
           >
             StädaFint
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
+              <Button key={item} sx={{ color: "black" }}>
                 {item}
               </Button>
             ))}

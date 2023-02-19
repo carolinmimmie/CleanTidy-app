@@ -14,34 +14,58 @@
     height: 80%;
   }
 }
-/* secion1 */
-.section1-rubrik {
-  text-align: center;
+/* section1, section2, section3 */
+.rubrik {
+  font-size: 2rem;
+  margin-top: 5rem;
 }
-.section1-text {
-  text-align: center;
+.underrubrik {
+  font-size: 1.5rem;
 }
-.lists {
+.text {
+  font-size: 1.4rem;
+  text-align: center;
+  width: 800px;
+  margin-bottom: 4rem;
+  line-height: 2.5rem;
+}
+/* section1 */
+/* ska försöka ersätta dessa med mer sx-styling */
+.tjanster {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+.tjanster-rubrik {
+  padding: 1rem;
+}
+.box-tjanster {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
   gap: 1rem;
 }
-@media (max-width: 1024px) {
-  .lists {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-}
 
-/* section2 */
-.section2-rubrik {
-  text-align: center;
+@media (max-width: 1024px) {
+}
+.section1,
+.section3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f4f2;
+  padding-bottom: 4rem;
+}
+/* Section2 */
+.section2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #c4d0c7;
+  padding-bottom: 4rem;
 }
 .cirklarna {
   margin-top: -2rem;
@@ -57,7 +81,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 300px;
+  width: 350px;
 }
 
 .cirkel {
@@ -74,20 +98,13 @@
   height: 40px;
   margin: 75px;
 }
-
-.section2-underrubrik {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+.cirkel-text {
+  font-size: 1.1rem;
+  text-align: center;
+  width: 300px;
+  line-height: 1.7rem;
 }
 
-.section2-text {
-  font-size: 1rem;
-  text-align: center;
-  line-height: 1.6rem;
-  margin: 0.5rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
 @media (max-width: 1024px) {
   .cirklarna {
     margin-top: -3rem;
@@ -97,29 +114,47 @@
     justify-content: space-evenly;
   }
 }
-/* Section3 */
-.section3 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.section3-text {
-  text-align: center;
-}
-Button {
-  width: 100px;
-  background-color: cornsilk;
-}
 
 /* Footer */
-/* .text-footer {
+.footer {
+  background-color: #a09d99;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  height: 180px;
+}
+a {
+  font-size: 0.9rem;
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+h6 {
+  font-size: 1rem;
+  color: black;
+  text-decoration: underline;
+}
+
+.text-footer {
   display: flex;
   flex-direction: column;
+}
+.bilder-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 1rem;
-  padding: 1rem;
-} */
+}
 
+@media (max-width: 1024px) {
+  .bilder-footer img {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* mina sidor */
 .my-pages {
   display: flex;
   flex-direction: column;
