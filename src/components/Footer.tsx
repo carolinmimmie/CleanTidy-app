@@ -20,6 +20,9 @@ const Footer = () => {
         sx={{
           bgcolor: " #a09d99;",
           height: 150,
+          display: "flex",
+          textAlign: "center",
+          alignItems: "center",
         }}
       >
         <BottomNavigationAction label="Instagram" icon={<InstagramIcon />} />

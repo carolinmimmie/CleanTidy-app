@@ -1,4 +1,3 @@
-import * as React from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -6,6 +5,48 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const Section1 = () => {
+  const basic = [
+    { id: 1, name: "Dammsuger golv och lister." },
+    { id: 2, name: "Dammsuger möbler och mattor." },
+    { id: 3, name: "Fuktmoppar golv." },
+    { id: 4, name: "Dammtorkar hyllor." },
+    { id: 5, name: "Dammtorkar fria ytor." },
+    { id: 6, name: "Puta speglas." },
+    { id: 7, name: "Tömmer papperskorgar." },
+  ];
+  const top = [
+    { id: 8, name: "Dammsuger golv och lister." },
+    { id: 9, name: "Dammsuger möbler och mattor." },
+    { id: 10, name: "Fuktmoppar golv." },
+    { id: 11, name: "Dammtorkar fönsterbrädor." },
+    { id: 12, name: "Dammtorkar fria ytor." },
+    { id: 13, name: "Puta speglas." },
+    { id: 14, name: "Bäddar sängar." },
+    { id: 15, name: "Tömmer papperskorgar." },
+  ];
+  const diamont = [
+    { id: 16, name: "Dammsuger golv och lister." },
+    { id: 17, name: "Dammsuger möbler och mattor." },
+    { id: 18, name: "Fuktmoppar golv." },
+    { id: 19, name: "Dammtorkar hyllor." },
+    { id: 20, name: "Dammtorkar alla fria ytor." },
+    { id: 21, name: "Rengöring av synliga fläckar." },
+    { id: 22, name: "Rengöring av ugn och micro." },
+    { id: 23, name: "Rengöring av skåp." },
+    { id: 24, name: "Källsorta och slänger." },
+  ];
+
+  const window = [
+    { id: 25, name: "Dammsuger yta runt fönstret." },
+    { id: 26, name: "Vi putsar alla typer av fönster." },
+    { id: 27, name: "Vi tar med fönsterputsutrustning." },
+    { id: 28, name: "Tvättar bågar." },
+    { id: 29, name: "Tvättar karmar." },
+    { id: 30, name: "Putsa takfönster." },
+    { id: 31, name: "Vid behov medtags stege." },
+    { id: 32, name: "Tvätting av gardiner." },
+  ];
+
   return (
     <div className="section1">
       <h3 className="rubrik">Vad kan vi hjälpa dig med?</h3>
@@ -43,13 +84,9 @@ const Section1 = () => {
               }}
             >
               <Typography>
-                <li>Dammsuger golv och lister.</li>
-                <li>Dammsuger möbler och mattor.</li>
-                <li>Fuktmoppar golv.</li>
-                <li>Dammtorkar hyllor.</li>
-                <li>Dammtorkar fria ytor.</li>
-                <li>Putsa speglar.</li>
-                <li>Tömmer papperskorgar.</li>
+                {basic.map((x) => (
+                  <li key={x.id}>{x.name}</li>
+                ))}
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -77,13 +114,9 @@ const Section1 = () => {
               }}
             >
               <Typography>
-                <li>Dammsuger golv och lister.</li>
-                <li>Dammsuger möbler och mattor.</li>
-                <li>Fuktmoppar golv.</li>
-                <li>Dammtorkar hyllor.</li>
-                <li>Dammtorkar fria ytor.</li>
-                <li>Putsa speglar.</li>
-                <li>Tömmer papperskorgar.</li>
+                {top.map((x) => (
+                  <li key={x.id}>{x.name}</li>
+                ))}
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -113,13 +146,9 @@ const Section1 = () => {
               }}
             >
               <Typography>
-                <li>Dammsuger golv och lister.</li>
-                <li>Dammsuger möbler och mattor.</li>
-                <li>Fuktmoppar golv.</li>
-                <li>Dammtorkar hyllor.</li>
-                <li>Dammtorkar fria ytor.</li>
-                <li>Putsa speglar.</li>
-                <li>Tömmer papperskorgar.</li>
+                {diamont.map((x) => (
+                  <li key={x.id}>{x.name}</li>
+                ))}
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -147,13 +176,9 @@ const Section1 = () => {
               }}
             >
               <Typography>
-                <li>Dammsuger golv och lister.</li>
-                <li>Dammsuger möbler och mattor.</li>
-                <li>Fuktmoppar golv.</li>
-                <li>Dammtorkar hyllor.</li>
-                <li>Dammtorkar fria ytor.</li>
-                <li>Putsa speglar.</li>
-                <li>Tömmer papperskorgar.</li>
+                {window.map((x) => (
+                  <li key={x.id}>{x.name}</li>
+                ))}
               </Typography>
             </AccordionDetails>
           </Accordion>
