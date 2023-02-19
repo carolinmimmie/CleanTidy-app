@@ -54,7 +54,7 @@ const Nav = (props: Props) => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }} style={{ backgroundColor: "white" }}>
+    <Box sx={{ display: "flex" }} style={{ backgroundColor: "black" }}>
       {/* <CssBaseline /> */}
       <AppBar
         component="nav"
@@ -68,7 +68,7 @@ const Nav = (props: Props) => {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ mr: 2, color: "black", display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>

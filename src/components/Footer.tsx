@@ -1,28 +1,35 @@
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const Footer = () => {
+  const [value, setValue] = React.useState(0);
+
   return (
-    <div className="footer">
-      <div className="text-footer">
-        <h6>Adress</h6>
-        <a href="# ">Bergsrådsvägen 10b</a>
-        <a href="# ">12846 Hägersten</a>
-        <a href="# ">Stockholm</a>
+   <div className="footer">
+      <BottomNavigation
+        showLabels
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+        sx={{
+          bgcolor: " #a09d99;",height:200
+          ,
+        }}
+      >
+        <BottomNavigationAction label="Instagram" icon={<InstagramIcon />} />
+        <BottomNavigationAction label="Twitter" icon={<TwitterIcon />} />
+        <BottomNavigationAction label="Facebook" icon={<FacebookIcon />} />
+        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+      </BottomNavigation>
       </div>
-      <div className="bilder-footer">
-        <InstagramIcon />
-        <FacebookIcon />
-        <LinkedInIcon />
-      </div>
-      <div className="text-footer">
-        <h6>Kontakt</h6>
-        <a href="# ">info@stadafint.se</a>
-        <a href="# ">StädaFint AB</a>
-        <a href="# ">org-nr: 557123-8618</a>
-      </div>
-    </div>
+
   );
 };
 
