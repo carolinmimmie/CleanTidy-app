@@ -37,11 +37,10 @@
   gap: 1rem;
   flex-direction: column;
 }
-.tjanster-rubrik {
-  padding: 1rem;
-}
+
 .box-tjanster {
-  width: 100%;
+  width: 80%;
+  margin: auto;
   display: flex;
   flex-direction: row;
   gap: 1rem;

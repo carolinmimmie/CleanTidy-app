@@ -22,10 +22,20 @@ const Section1 = () => {
               aria-controls="panel1a-content"
               id="panel1a-header"
               sx={{
-                bgcolor: " #f5f4f2", // use summary background color
+                bgcolor: " #f5f4f2",
+                fontSize: "7rem",
+                // use summary background color
               }}
             >
-              <Typography className="tjanster-rubrik">BasicStädning</Typography>
+              <Typography
+                sx={{
+                  fontSize: "1.3rem",
+                  padding: "1.2rem",
+                  // use summary background color
+                }}
+              >
+                BasicStädning
+              </Typography>
             </AccordionSummary>
             <AccordionDetails
               sx={{
@@ -52,7 +62,14 @@ const Section1 = () => {
                 bgcolor: " #f5f4f2", // use summary background color
               }}
             >
-              <Typography className="tjanster-rubrik">TopStädning</Typography>
+              <Typography
+                sx={{
+                  fontSize: "1.3rem",
+                  padding: "1.2rem", // use summary background color
+                }}
+              >
+                TopStädning
+              </Typography>
             </AccordionSummary>
             <AccordionDetails
               sx={{
@@ -81,7 +98,12 @@ const Section1 = () => {
                 bgcolor: " #f5f4f2", // use summary background color
               }}
             >
-              <Typography className="tjanster-rubrik">
+              <Typography
+                sx={{
+                  fontSize: "1.3rem",
+                  padding: "1.2rem", // use summary background color
+                }}
+              >
                 DiamantStädning
               </Typography>
             </AccordionSummary>
@@ -110,7 +132,14 @@ const Section1 = () => {
                 bgcolor: " #f5f4f2", // use summary background color
               }}
             >
-              <Typography className="tjanster-rubrik">FönsterPuts</Typography>
+              <Typography
+                sx={{
+                  fontSize: "1.3rem",
+                  padding: "1.2rem", // use summary background color
+                }}
+              >
+                FönsterPuts
+              </Typography>
             </AccordionSummary>
             <AccordionDetails
               sx={{

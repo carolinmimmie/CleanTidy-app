@@ -22,7 +22,7 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ["Tjänster", "Logga in"];
+const navItems = ["Städning", "Fönsterputs","Mina Sidor"];
 
 const Nav = (props: Props) => {
   const { window } = props;
