@@ -29,22 +29,6 @@
   margin-bottom: 4rem;
   line-height: 2.5rem;
 }
-/* section1 */
-/* ska försöka ersätta dessa med mer sx-styling */
-.tjanster {
-  width: 100%;
-  display: flex;
-  gap: 1rem;
-  flex-direction: column;
-}
-
-.box-tjanster {
-  width: 80%;
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-}
 
 @media (max-width: 1024px) {
 }

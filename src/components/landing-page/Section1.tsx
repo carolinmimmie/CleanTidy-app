@@ -3,6 +3,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Box from "@mui/material/Box";
 
 const Section1 = () => {
   const basic = [
@@ -55,8 +56,23 @@ const Section1 = () => {
         innebär. Därför finns StädaFint. Vi erbjuder 3 olika städtjänster samt
         fönsterputs. Välj den som passar dig och din vardag bäst. Hoppas vi ses!
       </p>
-      <div className="box-tjanster">
-        <div className="tjanster">
+      <Box
+        sx={{
+          width: "80%",
+          margin: "auto",
+          display: "flex",
+          flexDirection: "row",
+          gap: "1rem",
+        }}
+      >
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            gap: "1rem",
+            flexDirection: "column",
+          }}
+        >
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -120,8 +136,15 @@ const Section1 = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-        </div>
-        <div className="tjanster">
+        </Box>
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            gap: "1rem",
+            flexDirection: "column",
+          }}
+        >
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -182,61 +205,8 @@ const Section1 = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-        </div>
-      </div>
-
-      {/* <div className="lists">
-        <div className="basic">
-          <ul>
-            <h4 className="underrubrik">Basic Städning</h4>
-            <li>Dammsuger golv och lister.</li>
-            <li>Dammsugen möbler och mattor</li>
-            <li>Fuktmoppar golv</li>
-            <li>Dammtorkar hyllor</li>
-            <li>Dammtorkar fria ytor</li>
-            <li>Putsa speglar</li>
-            <li>Tömmer papperskorgar</li>
-          </ul>
-        </div>
-        <div className="top">
-          <ul>
-            <h4 className="underrubrik">Topp städning</h4>
-            <li>Dammsuger golv och lister.</li>
-            <li>Dammsugen möbler och mattor</li>
-            <li>Fuktmoppar golv</li>
-            <li>Dammtorkar fönsterbrädor</li>
-            <li>Dammtorkar fria ytor</li>
-            <li>Putsa speglar</li>
-            <li>Bäddar sängar</li>
-            <li>Tömmer papperskorgar</li>
-          </ul>
-        </div>
-        <div className="diamond">
-          <ul>
-            <h4 className="underrubrik">Diamant Städning</h4>
-            <li>Dammsuger golv och lister.</li>
-            <li>Dammsugen möbler och mattor</li>
-            <li>Fuktmoppar golv</li>
-            <li>Dammtorkar alla fria ytor</li>
-            <li>Rengöring av synliga fläckar</li>
-            <li>Rengöring av ugn/micro</li>
-            <li>rengöring av skåp</li>
-            <li>Källsortera och slänger</li>
-          </ul>
-        </div>
-        <div className="window">
-          <ul>
-            <h4 className="underrubrik">Fönsterputs</h4>
-            <li>Vi putsar alla typer av fönster</li>
-            <li>Vi tar med fönsterputsutrustning</li>
-            <li>Tvättar bågar </li>
-            <li>Rengöring av karmar</li>
-            <li>Putsar takfönster</li>
-            <li>Vid behov medtags stege</li>
-            <li>Tvättning av gardiner</li>
-          </ul>
-        </div> */}
-      {/* </div> */}
+        </Box>
+      </Box>
     </div>
   );
 };
