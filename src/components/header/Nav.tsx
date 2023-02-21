@@ -12,6 +12,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { Link } from "@mui/material";
+// import Link from "@mui/material/Link";
+// import Link from '@mui/material/Link';
 
 interface Props {
   /**
@@ -22,7 +25,13 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ["Städning", "Fönsterputs","Mina Sidor"];
+// const navItems = ["Städning", "Fönsterputs", "Mina Sidor"];
+
+const navItems = [
+  { name: "Städning", href: "http://localhost:3000/landingpage" },
+  { name: "Fönsterputs", href: "http://localhost:3000/landingpage" },
+  { name: "Mina Sidor", href: "http://localhost:3000/mypages" },
+];
 
 const Nav = (props: Props) => {
   const { window } = props;
@@ -40,9 +49,9 @@ const Nav = (props: Props) => {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+          <ListItem key={item.name} disablePadding>
+            <ListItemButton href={item.href} sx={{ textAlign: "center" }}>
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -73,19 +82,32 @@ const Nav = (props: Props) => {
             <MenuIcon />
           </IconButton>
           <Typography
+            // href="http://localhost:3000/landingpage"
+            // target={"localhost:3001/landingpage"}
+            // href="#"
             variant="h6"
             component="div"
             sx={{
               flexGrow: 1,
               display: { xs: "none", sm: "block", color: "black" },
+              textDecorationLine: "none",
             }}
           >
-            StädaFint
+            <Link
+              href="landingpage"
+              sx={{
+                color: "black",
+                textDecorationLine: "none",
+              }}
+            >
+              StädaFint
+            </Link>
           </Typography>
+
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: "black" }}>
-                {item}
+              <Button href={item.href} key={item.name} sx={{ color: "black" }}>
+                {item.name}
               </Button>
             ))}
           </Box>

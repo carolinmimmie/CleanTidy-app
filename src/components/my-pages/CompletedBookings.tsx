@@ -1,5 +1,6 @@
 import * as React from "react";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import Typography from "@mui/material/Typography";
 
 const columns: GridColDef[] = [
   { field: "datum", headerName: "Datum", width: 130 },
@@ -11,8 +12,8 @@ const columns: GridColDef[] = [
     description: "This column has a value getter and is not sortable.",
     sortable: false,
     width: 160,
-    valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+    // valueGetter: (params: GridValueGetterParams) =>
+    //   `${params.row.firstName || ""} ${params.row.lastName || ""}`,
   },
 ];
 
@@ -31,6 +32,9 @@ const rows = [
 const CompletedBookings = () => {
   return (
     <div style={{ height: 400, width: "80%", margin: "auto" }}>
+      <Typography component="div" variant="h6">
+        Utförda Bokningar
+      </Typography>
       <DataGrid
         rows={rows}
         columns={columns}

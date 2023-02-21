@@ -14,8 +14,8 @@ const MyPages = () => {
           justifyContent: "space-evenly",
         }}
       > */}
-        <CompletedBookings></CompletedBookings>
-        <CurrentBookings></CurrentBookings>
+      <CompletedBookings></CompletedBookings>
+      <CurrentBookings></CurrentBookings>
       {/* </Box> */}
       <Form></Form>
     </div>

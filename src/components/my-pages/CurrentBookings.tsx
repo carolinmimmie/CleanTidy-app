@@ -1,6 +1,7 @@
 import * as React from "react";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Typography } from "@mui/material";
 
 const columns: any[] = [
   {
@@ -27,8 +28,8 @@ const columns: any[] = [
     description: "This column has a value getter and is not sortable.",
     sortable: false,
     width: 160,
-    valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+    // valueGetter: (params: GridValueGetterParams) =>
+    //   `${params.row.firstName || ""} ${params.row.lastName || ""}`,
   },
 ];
 
@@ -47,6 +48,9 @@ const rows = [
 const CurrentBookings = () => {
   return (
     <div style={{ height: 400, width: "80%", margin: "auto" }}>
+      <Typography component="div" variant="h6">
+        Kommande Bokningar
+      </Typography>
       <DataGrid
         rows={rows}
         columns={columns}
