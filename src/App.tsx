@@ -23,6 +23,7 @@ function App() {
         <Route path="landingpage" element={<Landingpage />}></Route>
         <Route path="mypages" element={<MyPages />}></Route>
       </Routes>
+      <Footer></Footer>
     </BrowserRouter>
   );
 }
