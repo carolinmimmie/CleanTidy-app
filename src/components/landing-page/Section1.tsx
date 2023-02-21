@@ -4,6 +4,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Box from "@mui/material/Box";
+import { ListItem } from "@mui/material";
 
 const Section1 = () => {
   const basic = [
@@ -25,7 +26,7 @@ const Section1 = () => {
     { id: 14, name: "Bäddar sängar." },
     { id: 15, name: "Tömmer papperskorgar." },
   ];
-  const diamont = [
+  const diamond = [
     { id: 16, name: "Dammsuger golv och lister." },
     { id: 17, name: "Dammsuger möbler och mattor." },
     { id: 18, name: "Fuktmoppar golv." },
@@ -101,7 +102,7 @@ const Section1 = () => {
             >
               <Typography>
                 {basic.map((x) => (
-                  <li key={x.id}>{x.name}</li>
+                  <ListItem key={x.id}>{x.name}</ListItem>
                 ))}
               </Typography>
             </AccordionDetails>
@@ -131,7 +132,7 @@ const Section1 = () => {
             >
               <Typography>
                 {top.map((x) => (
-                  <li key={x.id}>{x.name}</li>
+                  <ListItem key={x.id}>{x.name}</ListItem>
                 ))}
               </Typography>
             </AccordionDetails>
@@ -169,8 +170,8 @@ const Section1 = () => {
               }}
             >
               <Typography>
-                {diamont.map((x) => (
-                  <li key={x.id}>{x.name}</li>
+                {diamond.map((x) => (
+                  <ListItem key={x.id}>{x.name}</ListItem>
                 ))}
               </Typography>
             </AccordionDetails>
@@ -200,7 +201,7 @@ const Section1 = () => {
             >
               <Typography>
                 {window.map((x) => (
-                  <li key={x.id}>{x.name}</li>
+                  <ListItem key={x.id}>{x.name}</ListItem>
                 ))}
               </Typography>
             </AccordionDetails>
