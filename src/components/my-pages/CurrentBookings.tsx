@@ -2,6 +2,12 @@ import * as React from "react";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Typography } from "@mui/material";
+import { IBookings } from "./interfaces";
+
+interface ICurrentbookings {
+  bookings: IBookings[]
+}
+
 
 const columns: any[] = [
   {
@@ -33,6 +39,10 @@ const columns: any[] = [
   },
 ];
 
+//test med date
+let start = Date.now();
+let date1 = new Date("2020-05-12T23:50:21.817Z")
+let newdate = start.toString()
 const rows = [
   { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
   { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
@@ -45,11 +55,11 @@ const rows = [
   { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
 ];
 
-const CurrentBookings = () => {
+const CurrentBookings = ({ bookings }: ICurrentbookings) => {
   return (
     <div style={{ height: 400, width: "80%", margin: "auto" }}>
       <Typography component="div" variant="h6">
-        Kommande Bokningar
+        Kommande Bokningar {date1.getFullYear()} {bookings.map((x) => <p>{x.datum.toString()}</p> )}
       </Typography>
       <DataGrid
         rows={rows}
