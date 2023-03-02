@@ -6,6 +6,7 @@ import { db } from "../../firebase.config";
 import CompletedBookings from "./CompletedBookings";
 import CurrentBookings from "./CurrentBookings";
 import Form from "./Form";
+import FormsBooking from "./FormsBooking";
 import { IBookings } from "./interfaces";
 
 
@@ -38,6 +39,7 @@ useEffect(() => {
       <CurrentBookings bookings = {bookings}></CurrentBookings>
       {/* </Box> */}
       <Form></Form>
+    
     </div>
   );
 };
