@@ -145,3 +145,25 @@ button {
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.link-class {
+  width: 200px;
+  margin: auto;
+  text-align: center;
+  margin: 0.8rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: black;
+}
+.link-class:hover {
+  opacity: 0.5;
+}
+.link-logga {
+  width: 200px;
+  margin: auto;
+  text-align: center;
+  margin: 0.8rem;
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: black;
+}

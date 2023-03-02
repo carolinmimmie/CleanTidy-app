@@ -6,32 +6,17 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import { Link } from "@mui/material";
-// import Link from "@mui/material/Link";
-// import Link from '@mui/material/Link';
+import { Link } from "react-router-dom";
 
 interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window?: () => Window;
 }
 
 const drawerWidth = 240;
-// const navItems = ["Städning", "Fönsterputs", "Mina Sidor"];
-
-const navItems = [
-  { name: "Städning", href: "http://localhost:3000/landingpage" },
-  { name: "Fönsterputs", href: "http://localhost:3000/landingpage" },
-  { name: "Mina Sidor", href: "http://localhost:3000/mypages" },
-];
+const navItems = ["StädaFint", "Fönsterputs", "Mina Sidor"];
 
 const Nav = (props: Props) => {
   const { window } = props;
@@ -48,11 +33,13 @@ const Nav = (props: Props) => {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item.name} disablePadding>
-            <ListItemButton href={item.href} sx={{ textAlign: "center" }}>
-              <ListItemText primary={item.name} />
-            </ListItemButton>
+        {navItems.map((x) => (
+          <ListItem key={x} disablePadding>
+            <div className="link-class">
+              <Link className="link-class" to={`/${x}`}>
+                {x}
+              </Link>
+            </div>
           </ListItem>
         ))}
       </List>
@@ -64,11 +51,10 @@ const Nav = (props: Props) => {
 
   return (
     <Box sx={{ display: "flex" }} style={{ backgroundColor: "black" }}>
-      {/* <CssBaseline /> */}
       <AppBar
         component="nav"
         sx={{
-          bgcolor: " #f5f4f2", // use summary background color
+          bgcolor: " #f5f4f2",
         }}
       >
         <Toolbar>
@@ -82,9 +68,6 @@ const Nav = (props: Props) => {
             <MenuIcon />
           </IconButton>
           <Typography
-            // href="http://localhost:3000/landingpage"
-            // target={"localhost:3001/landingpage"}
-            // href="#"
             variant="h6"
             component="div"
             sx={{
@@ -93,22 +76,18 @@ const Nav = (props: Props) => {
               textDecorationLine: "none",
             }}
           >
-            <Link
-              href="landingpage"
-              sx={{
-                color: "black",
-                textDecorationLine: "none",
-              }}
-            >
-              StädaFint
-            </Link>
+            {
+              <Link className="link-logga" to={"StädaFint"}>
+                StädaFint
+              </Link>
+            }
           </Typography>
 
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button href={item.href} key={item.name} sx={{ color: "black" }}>
-                {item.name}
-              </Button>
+            {navItems.map((x) => (
+              <Link className="link-class" to={`/${x}`}>
+                {x}
+              </Link>
             ))}
           </Box>
         </Toolbar>
@@ -133,12 +112,6 @@ const Nav = (props: Props) => {
           {drawer}
         </Drawer>
       </Box>
-      {/* <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
-        <Typography>
-  
-        </Typography>
-      </Box> */}
     </Box>
   );
 };

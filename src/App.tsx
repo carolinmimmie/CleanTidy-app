@@ -9,19 +9,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    // <div className="App">
-    //   <Header></Header>
-    //   <Landingpage></Landingpage>
-    //   <MyPages></MyPages>
-    //   <Footer></Footer>
-    // </div>
-
     <BrowserRouter>
       <Header></Header>
       <Routes>
         <Route path="/" element={<Landingpage />}></Route>
-        <Route path="landingpage" element={<Landingpage />}></Route>
-        <Route path="mypages" element={<MyPages />}></Route>
+        <Route path="FönsterPuts" element={<Landingpage />}></Route>
+        <Route path="StädaFint" element={<Landingpage />}></Route>
+        <Route path="Mina Sidor" element={<MyPages />}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>
