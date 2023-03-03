@@ -1,6 +1,7 @@
 import { Timestamp } from "firebase/firestore";
 
-interface IBookings {
+interface IBooking {
+  id: string;
   datum: Timestamp;
   kund: string;
   niva: string;
@@ -8,4 +9,4 @@ interface IBookings {
   status: boolean;
 }
 
-export type {IBookings} 
+export type { IBooking };

@@ -1,7 +1,9 @@
+import Form from "../my-pages/Form";
+
 const Hero = () => {
   return (
     <div className="hero">
-      <img src="./Images/clean-apartment.jpg" alt="" style={{ width: 100 }} />
+      <Form></Form>
     </div>
   );
 };

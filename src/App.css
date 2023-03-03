@@ -2,18 +2,25 @@
 .hero {
   background-image: url(./Images/clean-apartment.jpg);
   /* background-image:  url(../../../assets/bilder/clean-apartment.jpg); */
+  /* background-image: image-set(src= "./Images/clean-apartment.jpg"); */
   background-size: cover;
-  height: 800px;
+  height: 700px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+
+  /* display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: row; */
 }
-@media (max-width: 1024px) {
+
+/* @media (max-width: 1024px) {
   .hero {
     height: 80%;
   }
-}
+} */
 /* section1, section2, section3 */
 .rubrik {
   font-size: 2rem;
@@ -30,8 +37,6 @@
   line-height: 2.5rem;
 }
 
-@media (max-width: 1024px) {
-}
 .section1,
 .section3 {
   display: flex;
@@ -89,7 +94,7 @@
   line-height: 1.7rem;
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .cirklarna {
     margin-top: -3rem;
     display: flex;
@@ -97,16 +102,16 @@
     align-items: center;
     justify-content: space-evenly;
   }
-}
+} */
 
 /* mina sidor */
 .my-pages {
-  margin-top: 6rem;
+  /* margin-top: 6rem; */
   display: flex;
   /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  gap: 6rem;
+  gap: 4rem;
   padding: 3rem;
 }
 /* form log-in */
@@ -173,21 +178,24 @@ button {
 
 /* Form*/
 form {
-  background-color: white;
-  width: 80%;
-  /* margin: auto; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* padding: 3rem; */
+  /* position: absolute;
+  top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  color: black;
+  width: 400px;
+  padding: 5rem;
 }
+
 input,
 select {
   height: 45px;
   margin-bottom: 1rem;
   border-radius: 4px;
-  border: 2px solid rgb(232, 229, 229);
+  /* border: 2px solid rgb(232, 229, 229); */
   font-size: 1rem;
+  background-color: rgba(000000, 0, 0, 0.8);
+  color: white;
 }
 
 .box {

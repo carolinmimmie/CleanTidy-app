@@ -1,21 +1,27 @@
 import * as React from "react";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import Typography from "@mui/material/Typography";
+import { IBooking } from "./interfaces";
+
+interface ICompletedBookings {
+  bookings: IBooking[];
+}
 
 const columns: GridColDef[] = [
-  { field: "datum", headerName: "Datum", width: 130 },
-  { field: "tid", headerName: "Tid", width: 130 },
-  { field: "tjänst", headerName: "Tjänst", width: 130 },
+  { field: "datum", headerName: "Datum", width: 120 },
+  { field: "tid", headerName: "Tid", width: 120 },
+  { field: "nivå", headerName: "Nivå", width: 120 },
   {
     field: "städare",
     headerName: "Städare",
-    description: "This column has a value getter and is not sortable.",
+    // description: "This column has a value getter and is not sortable.",
     sortable: false,
-    width: 160,
+    width: 120,
     // valueGetter: (params: GridValueGetterParams) =>
     //   `${params.row.firstName || ""} ${params.row.lastName || ""}`,
   },
 ];
+
 
 const rows = [
   { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
@@ -29,14 +35,21 @@ const rows = [
   { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
 ];
 
-const CompletedBookings = () => {
+const CompletedBookings = ({ bookings }: ICompletedBookings) => {
   return (
-    <div style={{ height: 400, width: "80%", margin: "auto" }}>
+    <div style={{ height: 400, width: 655, margin: "auto" }}>
       <Typography component="div" variant="h6">
         Utförda Bokningar
       </Typography>
       <DataGrid
-        rows={rows}
+        rows={bookings.map((x) => ({
+          id: x.id,
+          key: x.id,
+          datum: x.datum.toString(),
+          tid: x.datum.toString(),
+          nivå: x.niva,
+          städare: x.stadare,
+        }))}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}

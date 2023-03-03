@@ -34,7 +34,7 @@ const Form = () => {
     <form className="form" onSubmit={handleSubmit}>
       <h2>Boka ny Städning:</h2>
       <div className="box">
-        <label htmlFor="date">Välj datum:</label>
+        {/* <label htmlFor="date">Välj datum:</label> */}
         <input
           type="date"
           id="date"
@@ -48,7 +48,7 @@ const Form = () => {
         ></input>
       </div>
       <div className="box">
-        <label htmlFor="time">Välj tid:</label>
+        {/* <label htmlFor="time">Välj tid:</label> */}
         <input
           type="time"
           id="time"
@@ -70,7 +70,7 @@ const Form = () => {
           ></input>
         </div> */}
       <div className="box">
-        <label htmlFor="cleaner">Välj städare:</label>
+        {/* <label htmlFor="cleaner">Välj städare:</label> */}
         <select
           id="cleaner"
           name="cleaner"
@@ -85,7 +85,7 @@ const Form = () => {
       </div>
 
       <div className="box">
-        <label htmlFor="service">Vilken typ av städning vill du ha?:</label>
+        {/* <label htmlFor="service">Vilken typ av städning vill du ha?:</label> */}
         <select
           id="service"
           name="service"
