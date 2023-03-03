@@ -183,7 +183,7 @@ form {
   left: 50%; */
   /* transform: translate(-50%, -50%); */
   color: black;
-  width: 400px;
+  width: 420px;
   padding: 5rem;
 }
 
@@ -203,10 +203,46 @@ select {
   flex-direction: column;
   margin-top: 1rem;
 }
+label {
+  height: 45px;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  /* border: 2px solid rgb(232, 229, 229); */
+  font-size: 1rem;
+
+  color: black;
+}
+.box-tjänster {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.box-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  filter: grayscale(1);
+}
+.label-radio {
+  margin-bottom: -0.5rem;
+  margin-top: 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+input[type="radio"] {
+  border: 0px;
+  width: 17px;
+  height: 2em;
+}
 
 .button-form {
   background-color: #95b995;
   color: white;
   padding: 0.8rem;
-  border: 2px solid rgb(232, 229, 229);
+  border: 1px solid rgb(138, 135, 135);
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1rem;
+  text-transform: uppercase;
 }

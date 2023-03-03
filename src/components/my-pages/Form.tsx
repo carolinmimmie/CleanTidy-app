@@ -13,7 +13,7 @@ const Form = () => {
     date: "",
     time: "",
     cleaner: "",
-    service: "",
+    service: "basic",
   });
 
   //event utav typen React.ChangeEvent<HTMLInputElement>
@@ -28,6 +28,7 @@ const Form = () => {
   // d.	Skapa en handleSubmit som du refererar till på din <form> onSubmit.
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
+    console.log(formData);
     // e.	I den kan du consol.loga formData för att se att hela formuläret är kopplat till ett objekt som skulle kunna skickas till backend.
   };
   return (
@@ -84,20 +85,59 @@ const Form = () => {
         </select>
       </div>
 
-      <div className="box">
-        {/* <label htmlFor="service">Vilken typ av städning vill du ha?:</label> */}
-        <select
-          id="service"
-          name="service"
-          value={formData.service}
-          onChange={handleChange}
-        >
-          <option value="">Välj tjänst:</option>
-          <option value="basic">Basic</option>
-          <option value="topp">Topp</option>
-          <option value="diamant">Diamant</option>
-          <option value="fönster">Fönster</option>
-        </select>
+      <div className="box-tjänster">
+        <div className="box-input">
+          <label className="label-radio" htmlFor="service">
+            Basic:
+          </label>
+          <input
+            type="radio"
+            id="service"
+            name="service"
+            value="basic"
+            onChange={handleChange}
+            checked={formData.service === "basic"}
+          ></input>
+        </div>
+        <div className="box-input">
+          <label className="label-radio" htmlFor="service">
+            Top:
+          </label>
+          <input
+            type="radio"
+            id="service"
+            name="service"
+            value="top"
+            onChange={handleChange}
+            checked={formData.service === "top"}
+          ></input>
+        </div>
+        <div className="box-input">
+          <label className="label-radio" htmlFor="service">
+            Diamant:
+          </label>
+          <input
+            type="radio"
+            id="service"
+            name="service"
+            value="diamant"
+            onChange={handleChange}
+            checked={formData.service === "diamant"}
+          ></input>
+        </div>
+        <div className="box-input">
+          <label className="label-radio" htmlFor="service">
+            FönsterPuts:
+          </label>
+          <input
+            type="radio"
+            id="service"
+            name="service"
+            value="fönster"
+            onChange={handleChange}
+            checked={formData.service === "fönster"}
+          ></input>
+        </div>
       </div>
 
       <div className="button-box">
