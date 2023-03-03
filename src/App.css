@@ -103,8 +103,11 @@
 .my-pages {
   margin-top: 6rem;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
   gap: 6rem;
+  padding: 3rem;
 }
 /* form log-in */
 /* .form-container {
@@ -172,11 +175,11 @@ button {
 form {
   background-color: white;
   width: 80%;
-  margin: auto;
+  /* margin: auto; */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 3rem;
+  /* padding: 3rem; */
 }
 input,
 select {

@@ -5,9 +5,8 @@ import { Typography } from "@mui/material";
 import { IBookings } from "./interfaces";
 
 interface ICurrentbookings {
-  bookings: IBookings[]
+  bookings: IBookings[];
 }
-
 
 const columns: any[] = [
   {
@@ -41,8 +40,8 @@ const columns: any[] = [
 
 //test med date
 let start = Date.now();
-let date1 = new Date("2020-05-12T23:50:21.817Z")
-let newdate = start.toString()
+let date1 = new Date("2020-05-12T23:50:21.817Z");
+let newdate = start.toString();
 const rows = [
   { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
   { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
@@ -59,7 +58,8 @@ const CurrentBookings = ({ bookings }: ICurrentbookings) => {
   return (
     <div style={{ height: 400, width: "80%", margin: "auto" }}>
       <Typography component="div" variant="h6">
-        Kommande Bokningar {date1.getFullYear()} {bookings.map((x) => <p>{x.datum.toString()}</p> )}
+        Kommande Bokningar
+        {/* {date1.getFullYear()} {bookings.map((x) => <p>{x.datum.toString()}</p> )} */}
       </Typography>
       <DataGrid
         rows={rows}

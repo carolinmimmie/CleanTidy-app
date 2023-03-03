@@ -102,7 +102,7 @@ const Form = () => {
 
       <div className="button-box">
         <button className="button-form" type="submit">
-          CREATE ACCOUNT
+          Lägg till bokning
         </button>
       </div>
     </form>

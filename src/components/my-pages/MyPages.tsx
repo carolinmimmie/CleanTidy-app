@@ -9,38 +9,38 @@ import Form from "./Form";
 import FormsBooking from "./FormsBooking";
 import { IBookings } from "./interfaces";
 
-
-
 const MyPages = () => {
-const [bookings, setBookings] = useState<IBookings[]>([])
-const bookingsCollectionRef = collection(db, "bookings")
+  const [bookings, setBookings] = useState<IBookings[]>([]);
+  const bookingsCollectionRef = collection(db, "bookings");
 
-useEffect(() => {
-  const getBookings = async () => {
-    const data = await getDocs(bookingsCollectionRef)
-    setBookings(data.docs.map(doc => ({
-      ...(doc.data() as IBookings), id: doc.id
-    })))
-  }
-  getBookings()
-}, [])
-
+  useEffect(() => {
+    const getBookings = async () => {
+      const data = await getDocs(bookingsCollectionRef);
+      setBookings(
+        data.docs.map((doc) => ({
+          ...(doc.data() as IBookings),
+          id: doc.id,
+        }))
+      );
+    };
+    getBookings();
+  }, []);
 
   return (
-    <div className="my-pages">
-      {/* <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-        }}
-      > */}
-      <CompletedBookings></CompletedBookings>
-      <CurrentBookings bookings = {bookings}></CurrentBookings>
-      {/* </Box> */}
+    // <div className="my-pages">
+    <Box
+      className="my-pages"
+      // sx={{
+      //   display: "flex",
+      //   flexDirection: "column",
+      //   justifyContent: "space-evenly",
+      // }}
+    >
       <Form></Form>
-    
-    </div>
+      <CompletedBookings></CompletedBookings>
+      <CurrentBookings bookings={bookings}></CurrentBookings>
+    </Box>
+    // </div>
   );
 };
 
