@@ -9,7 +9,7 @@ import ListItem from "@mui/material/ListItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface Props {
   window?: () => Window;
@@ -19,6 +19,9 @@ const drawerWidth = 240;
 const navItems = ["StädaFint", "Fönsterputs", "Mina Sidor"];
 
 const Nav = (props: Props) => {
+  let user = "Anna Andersson"
+  let navigation = useNavigate();
+  
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 

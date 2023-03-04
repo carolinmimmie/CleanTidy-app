@@ -10,6 +10,7 @@ import {
   where,
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Interface } from "readline";
 import { db } from "../../firebase.config";
 import CompletedBookings from "./CompletedBookings";
@@ -19,6 +20,10 @@ import FormsBooking from "./FormsBooking";
 import { IBooking } from "./interfaces";
 
 const MyPages = () => {
+
+  let user= "Anna Andersson"
+  let navigation = useNavigate();
+  
   const [currentBookings, setCurrentBookings] = useState<IBooking[]>([]);
   const [completedBookings, setCompletedBookings] = useState<IBooking[]>([]);
   const bookingsCollectionRef = collection(db, "bookings");
@@ -71,10 +76,15 @@ const MyPages = () => {
   // console.log(bookings);
 
   return (
+<>
+
+<h1 className="titelMypages"> Välkommen Anna Andersson</h1>
     <Box className="my-pages">
       <CurrentBookings bookings={currentBookings}></CurrentBookings>
       <CompletedBookings bookings={completedBookings}></CompletedBookings>
     </Box>
+
+    </>
   );
 };
 

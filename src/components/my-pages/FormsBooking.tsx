@@ -1,6 +1,8 @@
 import React from 'react'
 
 const FormsBooking = () => {
+
+    
   return (
     <div className="formBooking">
       <h3 className="rubrik">Boka ny städning</h3>
