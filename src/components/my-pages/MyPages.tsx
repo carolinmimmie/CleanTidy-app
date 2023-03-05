@@ -22,7 +22,7 @@ import { IBooking } from "./interfaces";
 const MyPages = () => {
 
   let user= "Anna Andersson"
-  let navigation = useNavigate();
+  
   
   const [currentBookings, setCurrentBookings] = useState<IBooking[]>([]);
   const [completedBookings, setCompletedBookings] = useState<IBooking[]>([]);
