@@ -19,9 +19,7 @@ const drawerWidth = 240;
 const navItems = ["StädaFint", "Fönsterputs", "Mina Sidor"];
 
 const Nav = (props: Props) => {
-  let user = "Anna Andersson"
-  let navigation = useNavigate();
-  
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 

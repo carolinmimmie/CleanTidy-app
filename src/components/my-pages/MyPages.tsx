@@ -78,7 +78,7 @@ const MyPages = () => {
   return (
 <>
 
-<h1 className="titelMypages"> Välkommen Anna Andersson</h1>
+<h1 className="titelMypages"> Välkommen {user} </h1>
     <Box className="my-pages">
       <CurrentBookings bookings={currentBookings}></CurrentBookings>
       <CompletedBookings bookings={completedBookings}></CompletedBookings>
