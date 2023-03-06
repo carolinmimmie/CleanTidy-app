@@ -12,7 +12,7 @@ const columns: GridColDef[] = [
   {
     field: "delete",
     headerName: "Delete",
-    width: 50,
+    width: 55,
     renderCell: () => {
       return (
         <DeleteIcon
