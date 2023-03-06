@@ -45,8 +45,8 @@ const CompletedBookings = ({ bookings }: ICompletedBookings) => {
         rows={bookings.map((x) => ({
           id: x.id,
           key: x.id,
-          datum: x.datum.toString(),
-          tid: x.datum.toString(),
+          datum: x.datum.toDate().toLocaleDateString("sv-SE"),
+          tid: x.datum.toDate().toLocaleTimeString("sv-SE"),
           nivå: x.niva,
           städare: x.stadare,
         }))}
