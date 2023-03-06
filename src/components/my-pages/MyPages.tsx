@@ -21,7 +21,6 @@ import { IBooking } from "./interfaces";
 
 const MyPages = () => {
 
-  let user= "Anna Andersson"
   
   
   const [currentBookings, setCurrentBookings] = useState<IBooking[]>([]);
@@ -40,20 +39,22 @@ const MyPages = () => {
       }))
     );
 
+    
     const dataCompleted = await getDocs(qCompleted);
-
+    
     setCompletedBookings(
       dataCompleted.docs.map((doc) => ({
         ...(doc.data() as IBooking),
         id: doc.id,
       }))
-    );
-  };
+      );
+    };
+    
+    useEffect(() => {
+      getBookings();
+    }, []);
 
-  useEffect(() => {
-    getBookings();
-  }, []);
-
+    
   const changeStatus = async (x: IBooking) => {
     await updateDoc(doc(bookingsCollectionRef, x.id), {
       status: !x.status,
@@ -73,12 +74,20 @@ const MyPages = () => {
     getBookings();
   };
 
+
   // console.log(bookings);
 
   return (
 <>
 
-<h1 className="titelMypages"> Välkommen {user} </h1>
+
+
+    {currentBookings.map((x) => (
+      <h2 key={x.id}>
+        {`Välkommen ${x.kund} `} 
+      </h2>
+    ))} 
+
     <Box className="my-pages">
       <CurrentBookings bookings={currentBookings}></CurrentBookings>
       <CompletedBookings bookings={completedBookings}></CompletedBookings>
