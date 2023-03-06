@@ -83,7 +83,7 @@ const MyPages = () => {
 
 
     {currentBookings.map((x) => (
-      <h2 key={x.id}>
+      <h2 className="titelMypages" key={x.id}>
         {`Välkommen ${x.kund} `} 
       </h2>
     ))} 
