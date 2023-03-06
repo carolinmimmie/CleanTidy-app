@@ -1,3 +1,4 @@
+import { FormatAlignLeftSharp } from "@mui/icons-material";
 import React from "react";
 import { useState } from "react";
 interface IFormData {
@@ -18,7 +19,7 @@ const Form = () => {
 
   //event utav typen React.ChangeEvent<HTMLInputElement>
   //name är de olika egenskaperna
-  const [show, setShow] = useState(false);
+
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -28,6 +29,10 @@ const Form = () => {
   // d.	Skapa en handleSubmit som du refererar till på din <form> onSubmit.
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
+    if (formData.date && formData.time && formData.cleaner == "") {
+      alert("Alla fält måste vara ifyllda!");
+    } else {
+    }
     console.log(formData);
     // e.	I den kan du consol.loga formData för att se att hela formuläret är kopplat till ett objekt som skulle kunna skickas till backend.
   };
@@ -40,7 +45,7 @@ const Form = () => {
           type="date"
           id="date"
           name="date"
-          required
+          // required
           //Value = {formData.fistname} är de so  bor i formData
           value={formData.date}
           // b.	Skapa en handelChange metod som du kopplar till alla input-fält.
@@ -54,22 +59,11 @@ const Form = () => {
           type="time"
           id="time"
           name="time"
-          required
+          // required
           value={formData.time}
           onChange={handleChange}
         ></input>
       </div>
-
-      {/* <div className="box">
-          <label htmlFor="role">Role:</label>
-          <input
-            type="text"
-            id="role"
-            name="role"
-            value={formData.role}
-            onChange={handleChange}
-          ></input>
-        </div> */}
       <div className="box">
         {/* <label htmlFor="cleaner">Välj städare:</label> */}
         <select
