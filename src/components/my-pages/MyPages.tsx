@@ -81,12 +81,11 @@ const MyPages = () => {
 <>
 
 
-
-    {currentBookings.map((x) => (
+     {currentBookings.map((x) => (
       <h2 className="titelMypages" key={x.id}>
-        {`Välkommen ${x.kund} `} 
-      </h2>
-    ))} 
+        {`Välkommen ${x.kund}`} 
+      </h2> 
+    ))[0]}  
 
     <Box className="my-pages">
       <CurrentBookings bookings={currentBookings}></CurrentBookings>

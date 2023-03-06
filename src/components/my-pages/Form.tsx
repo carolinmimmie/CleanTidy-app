@@ -29,7 +29,7 @@ const Form = () => {
   // d.	Skapa en handleSubmit som du refererar till på din <form> onSubmit.
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
-    if (formData.date && formData.time && formData.cleaner == "") {
+    if (formData.date || formData.time || formData.cleaner === "") {
       alert("Alla fält måste vara ifyllda!");
     } else {
     }
