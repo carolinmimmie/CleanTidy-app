@@ -6,6 +6,7 @@ interface IFormData {
   time: string;
   cleaner: string;
   service: string;
+  // createBooking: void;
 }
 
 const Form = () => {

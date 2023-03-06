@@ -1,11 +1,18 @@
 import * as React from "react";
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridColDef,
+  GridEventListener,
+  GridValueGetterParams,
+} from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Typography } from "@mui/material";
 import { IBooking } from "./interfaces";
+import { useParams } from "react-router-dom";
 
 interface ICurrentbookings {
   bookings: IBooking[];
+  deleteBooking: (id: string) => Promise<void>;
 }
 
 const columns: GridColDef[] = [
@@ -13,6 +20,7 @@ const columns: GridColDef[] = [
     field: "delete",
     headerName: "Delete",
     width: 55,
+    sortable: false,
     renderCell: () => {
       return (
         <DeleteIcon
@@ -37,35 +45,39 @@ const columns: GridColDef[] = [
     sortable: false,
     width: 130,
     // valueGetter: (params: GridValueGetterParams) =>
-    //   `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+    //   `${params.row.datum || ""} ${params.row.tid || ""} ${
+    //     params.row.nivå || ""
+    //   } ${params.row.städare || ""}`,
   },
 ];
 
-//test med date
-let start = Date.now();
-let date1 = new Date("2020-05-12T23:50:21.817Z");
-let newdate = start.toString();
+const printId = (x: any) => {
+  x.field === "delete"
+    ? console.log(`Cellen är i fältet: "${x.field}" och id't är: "${x.id}"`)
+    : console.log("Cellen du klickat på är i fel fält");
 
-// const rows = [
-//   { id: 1, datum: "Snow", tid: "Jon", nivå: 35, städare: "Marre" },
-//   { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-//   { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-//   { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-//   { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-//   { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-//   { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-//   { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-//   { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
-// ];
+  // console.log(x.field);
+};
 
-// const rows = {booking}
+// const handleDelete = (x: any) => {
+//   x.field === "delete"
+//     ? deleteBooking(x.id)
+//     : console.log("Cellen du klickat på är i fel fält");
+// };
 
-const CurrentBookings = ({ bookings }: ICurrentbookings) => {
+const handleOnCellClick: GridEventListener<"cellClick"> = (
+  params, // GridCellParams<any>
+  event, // MuiEvent<React.MouseEvent<HTMLElement>>
+  details // GridCallbackDetails
+) => {
+  printId(params);
+};
+
+const CurrentBookings = ({ bookings, deleteBooking }: ICurrentbookings) => {
   return (
     <div style={{ height: 400, width: 655, margin: "auto" }}>
       <Typography component="div" variant="h6">
         Kommande Bokningar
-        {/* {date1.getFullYear()} {bookings.map((x) => <p>{x.datum.toString()}</p> )} */}
       </Typography>
       <DataGrid
         rows={bookings.map((x) => ({
@@ -79,6 +91,7 @@ const CurrentBookings = ({ bookings }: ICurrentbookings) => {
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
+        onCellClick={handleOnCellClick}
       />
     </div>
   );
