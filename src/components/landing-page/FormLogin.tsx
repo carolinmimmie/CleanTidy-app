@@ -2,7 +2,7 @@ import { Switch } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const FormsBooking = () => {
+const FormLogin = () => {
   let navigation = useNavigate();
   const handleClick = () => {
     navigation("/Mina Sidor");
@@ -69,4 +69,4 @@ const FormsBooking = () => {
   );
 };
 
-export default FormsBooking;
+export default FormLogin;

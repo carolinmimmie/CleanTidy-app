@@ -9,7 +9,7 @@ interface IFormData {
   // createBooking: void;
 }
 
-const Form = () => {
+const FormBooking = () => {
   // a.	Skapa ett state för att lagar all input, koppla dess innhåll till ett interface som definerar upp vilken typ som får finnas i ditt userObjekt.
   const [formData, setformData] = useState<IFormData>({
     date: "",
@@ -143,5 +143,5 @@ const Form = () => {
     </form>
   );
 };
-export default Form;
+export default FormBooking;
 

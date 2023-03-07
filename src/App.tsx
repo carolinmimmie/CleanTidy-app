@@ -4,7 +4,7 @@ import Landingpage from "./components/landing-page/Landingpage";
 import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import MyPages from "./components/my-pages/MyPages";
-import Form from "./components/my-pages/Form";
+import Form from "./components/my-pages/FormBooking";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -13,8 +13,9 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Landingpage />}></Route>
-        <Route path="FönsterPuts" element={<Landingpage />}></Route>
+        <Route path="Om Oss" element={<Landingpage />}></Route>
         <Route path="StädaFint" element={<Landingpage />}></Route>
+        <Route path="Våra Tjänster" element={<Landingpage />}></Route>
         <Route path="Mina Sidor" element={<MyPages />}></Route>
       </Routes>
       <Footer></Footer>

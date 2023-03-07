@@ -1,10 +1,11 @@
 import React from 'react'
-import FormsBooking from '../my-pages/FormsBooking'
+import FormLogin from './FormLogin'
+import FormsBooking from './FormLogin'
 
 const LandingpageHero = () => {
     return (
         <div className="hero">
-            <FormsBooking></FormsBooking>
+            <FormLogin></FormLogin>
        
       </div>
     )

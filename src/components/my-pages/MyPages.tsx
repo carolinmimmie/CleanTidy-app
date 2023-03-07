@@ -11,7 +11,8 @@ import {
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../../firebase.config";
-import Hero from "../header/Hero";
+import MypagesHero from "./MypagesHero";
+import Hero from "./MypagesHero";
 import CompletedBookings from "./CompletedBookings";
 import CurrentBookings from "./CurrentBookings";
 import { IBooking } from "./interfaces";
@@ -70,7 +71,7 @@ const MyPages = () => {
 
   return (
     <>
-        <Hero></Hero>
+        <MypagesHero></MypagesHero>
       {
         currentBookings.map((x) => (
           <h2 className="titelMypages" key={x.id}>

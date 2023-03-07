@@ -16,10 +16,9 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ["StädaFint", "Fönsterputs", "Mina Sidor"];
+const navItems = ["Våra Tjänster", "Om Oss", "Mina Sidor"];
 
 const Nav = (props: Props) => {
-
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
