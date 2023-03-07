@@ -1,6 +1,6 @@
 /* hero */
 .hero {
-  background-image: url(./Images/clean-apartment.jpg);
+  /* background-image: url(./Images/clean-apartment.jpg); */
   /* background-image:  url(../../../assets/bilder/clean-apartment.jpg); */
   /* background-image: image-set(src= "./Images/clean-apartment.jpg"); */
   background-size: cover;
@@ -9,6 +9,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./Images/clean-apartment.jpg);
 
   /* display: flex;
   justify-content: center;
@@ -94,16 +96,6 @@
   line-height: 1.7rem;
 }
 
-/* @media (max-width: 1024px) {
-  .cirklarna {
-    margin-top: -3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-} */
-
 /* mina sidor */
 .my-pages {
   /* margin-top: 6rem; */
@@ -178,11 +170,11 @@ button {
 
 /* Form*/
 form {
-  /* position: absolute;
+  position: absolute;
   top: 50%;
-  left: 50%; */
-  /* transform: translate(-50%, -50%); */
-  color: black;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: white;
   width: 420px;
   padding: 5rem;
 }
@@ -192,10 +184,10 @@ select {
   height: 45px;
   margin-bottom: 1rem;
   border-radius: 4px;
-  /* border: 2px solid rgb(232, 229, 229); */
-  font-size: 1rem;
-  background-color: rgba(000000, 0, 0, 0.8);
-  color: white;
+  font-size: 1.1rem;
+  /* background-color: rgba(000000, 0, 0, 0.8); */
+  /* background-color: white; */
+  color: black;
 }
 
 .box {
@@ -207,10 +199,8 @@ label {
   height: 45px;
   margin-bottom: 1rem;
   border-radius: 4px;
-  /* border: 2px solid rgb(232, 229, 229); */
-  font-size: 1rem;
-
-  color: black;
+  font-size: 1.1rem;
+  color: white;
 }
 .box-tjänster {
   display: flex;
@@ -222,7 +212,6 @@ label {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  filter: grayscale(1);
 }
 .label-radio {
   margin-bottom: -0.5rem;
@@ -234,22 +223,46 @@ input[type="radio"] {
   border: 0px;
   width: 17px;
   height: 2em;
+  accent-color: black;
+  transform: scale(1.2);
 }
 
 .button-form {
-  background-color: #95b995;
+  border: none;
+  padding: 15px 25px;
   color: white;
-  padding: 0.8rem;
-  border: 1px solid rgb(138, 135, 135);
+  background-color: rgba(000000, 0, 0, 0.8);
+  text-align: center;
   cursor: pointer;
-  transition: 0.3s;
-  font-size: 1rem;
-  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+.button-form:hover {
+  background-color: black;
+  color: white;
 }
 
-.titelMypages{
+.titelMypages {
   font-size: 2.5rem;
   margin-top: 3rem;
   padding: 5rem;
   text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .cirklarna {
+    margin-top: -3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  form {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
 }
