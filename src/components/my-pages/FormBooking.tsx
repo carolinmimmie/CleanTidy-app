@@ -1,21 +1,23 @@
 import { FormatAlignLeftSharp } from "@mui/icons-material";
+import { time } from "console";
+import { Timestamp } from "firebase/firestore";
 import React from "react";
 import { useState } from "react";
+import { IBooking } from "./interfaces";
+
 interface IFormData {
-  date: string;
-  time: string;
-  cleaner: string;
-  service: string;
-  // createBooking: void;
+  createBooking: (bokning: IBooking) => Promise<void>;
 }
 
-const FormBooking = () => {
+const FormBooking = ({ createBooking }: IFormData) => {
   // a.	Skapa ett state för att lagar all input, koppla dess innhåll till ett interface som definerar upp vilken typ som får finnas i ditt userObjekt.
-  const [formData, setformData] = useState<IFormData>({
-    date: "",
-    time: "",
-    cleaner: "",
-    service: "basic",
+  const [formData, setformData] = useState<IBooking>({
+    id: Math.random().toString(),
+    datum: new Timestamp(0, 0),
+    kund: "Jessica Clarkson",
+    niva: "",
+    stadare: "",
+    status: false,
   });
 
   //event utav typen React.ChangeEvent<HTMLInputElement>
@@ -30,47 +32,34 @@ const FormBooking = () => {
   // d.	Skapa en handleSubmit som du refererar till på din <form> onSubmit.
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
-    if (formData.date || formData.time || formData.cleaner === "") {
-      alert("Alla fält måste vara ifyllda!");
-    } else {
-    }
+    // if (formData.date || formData.time || formData.cleaner === "") {
+    //   alert("Alla fält måste vara ifyllda!");
+    // } else {
+    // }
     console.log(formData);
+    createBooking(formData);
     // e.	I den kan du consol.loga formData för att se att hela formuläret är kopplat till ett objekt som skulle kunna skickas till backend.
   };
   return (
     <form className="form" onSubmit={handleSubmit}>
       <h2>Boka ny Städning:</h2>
+      <div className="box"></div>
       <div className="box">
-        {/* <label htmlFor="date">Välj datum:</label> */}
         <input
-          type="date"
-          id="date"
-          name="date"
-          // required
-          //Value = {formData.fistname} är de so  bor i formData
-          value={formData.date}
-          // b.	Skapa en handelChange metod som du kopplar till alla input-fält.
-          //handleChange kopplar så de som användaren skriver i blir formDatan
-          onChange={handleChange}
-        ></input>
-      </div>
-      <div className="box">
-        {/* <label htmlFor="time">Välj tid:</label> */}
-        <input
-          type="time"
-          id="time"
-          name="time"
-          // required
-          value={formData.time}
+          type="datetime-local"
+          id="datum"
+          name="datum"
+          required
+          value={formData.datum.toString()}
           onChange={handleChange}
         ></input>
       </div>
       <div className="box">
         {/* <label htmlFor="cleaner">Välj städare:</label> */}
         <select
-          id="cleaner"
-          name="cleaner"
-          value={formData.cleaner}
+          id="stadare"
+          name="stadare"
+          value={formData.stadare}
           onChange={handleChange}
         >
           <option value="">Välj städare:</option>
@@ -87,11 +76,11 @@ const FormBooking = () => {
           </label>
           <input
             type="radio"
-            id="service"
-            name="service"
+            id="niva"
+            name="niva"
             value="basic"
             onChange={handleChange}
-            checked={formData.service === "basic"}
+            checked={formData.niva === "basic"}
           ></input>
         </div>
         <div className="box-input">
@@ -100,11 +89,11 @@ const FormBooking = () => {
           </label>
           <input
             type="radio"
-            id="service"
-            name="service"
+            id="niva"
+            name="niva"
             value="top"
             onChange={handleChange}
-            checked={formData.service === "top"}
+            checked={formData.niva === "top"}
           ></input>
         </div>
         <div className="box-input">
@@ -113,11 +102,11 @@ const FormBooking = () => {
           </label>
           <input
             type="radio"
-            id="service"
-            name="service"
+            id="niva"
+            name="niva"
             value="diamant"
             onChange={handleChange}
-            checked={formData.service === "diamant"}
+            checked={formData.niva === "diamant"}
           ></input>
         </div>
         <div className="box-input">
@@ -126,11 +115,11 @@ const FormBooking = () => {
           </label>
           <input
             type="radio"
-            id="service"
-            name="service"
+            id="niva"
+            name="niva"
             value="fönster"
             onChange={handleChange}
-            checked={formData.service === "fönster"}
+            checked={formData.niva === "fönster"}
           ></input>
         </div>
       </div>
@@ -144,4 +133,3 @@ const FormBooking = () => {
   );
 };
 export default FormBooking;
-

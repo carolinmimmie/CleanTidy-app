@@ -1,10 +1,15 @@
 import React from "react";
 import FormBooking from "./FormBooking";
+import { IBooking } from "./interfaces";
 
-const MypagesHero = () => {
+interface qwp {
+  createBooking: (bokning: IBooking) => Promise<void>;
+}
+
+const MypagesHero = ({ createBooking }: qwp) => {
   return (
     <div className="hero">
-      <FormBooking></FormBooking>
+      <FormBooking createBooking={createBooking}></FormBooking>
     </div>
   );
 };

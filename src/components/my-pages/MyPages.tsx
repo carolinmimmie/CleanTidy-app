@@ -16,6 +16,7 @@ import Hero from "./MypagesHero";
 import CompletedBookings from "./CompletedBookings";
 import CurrentBookings from "./CurrentBookings";
 import { IBooking } from "./interfaces";
+import FormBooking from "./FormBooking";
 
 const MyPages = () => {
   const [currentBookings, setCurrentBookings] = useState<IBooking[]>([]);
@@ -60,9 +61,9 @@ const MyPages = () => {
     getBookings();
   };
 
-  const createBooking = async () => {
+  const createBooking = async (bokning: IBooking) => {
     await addDoc(bookingsCollectionRef, {
-      //Här inne ska vi ta emot det objektet som submittas från formuläret
+      bokning,
     });
     getBookings();
   };
@@ -71,7 +72,7 @@ const MyPages = () => {
 
   return (
     <>
-        <MypagesHero></MypagesHero>
+      <MypagesHero createBooking={createBooking}></MypagesHero>
       {
         currentBookings.map((x) => (
           <h2 className="titelMypages" key={x.id}>
@@ -82,6 +83,7 @@ const MyPages = () => {
 
       <Box className="my-pages">
         {/* <Form createBooking={createBooking}></Form> */}
+        {/* <FormBooking></FormBooking> */}
         <CurrentBookings
           bookings={currentBookings}
           deleteBooking={deleteBooking}
