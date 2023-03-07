@@ -1,7 +1,7 @@
 import * as React from "react";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import Typography from "@mui/material/Typography";
-import { IBooking } from "./interfaces";
+import { IBooking, INewBooking } from "./interfaces";
 
 interface ICompletedBookings {
   bookings: IBooking[];
@@ -32,8 +32,10 @@ const CompletedBookings = ({ bookings }: ICompletedBookings) => {
         rows={bookings.map((x) => ({
           id: x.id,
           key: x.id,
-          datum: x.datum.toDate().toLocaleDateString("sv-SE"),
-          tid: x.datum.toDate().toLocaleTimeString("sv-SE"),
+          datum: x.datum,
+          // .toDate().toLocaleDateString("sv-SE"),
+          tid: x.datum,
+          // .toDate().toLocaleTimeString("sv-SE"),
           nivå: x.niva,
           städare: x.stadare,
         }))}

@@ -41,39 +41,28 @@ const columns: GridColDef[] = [
   {
     field: "städare",
     headerName: "Städare",
-    // description: "This column has a value getter and is not sortable.",
     sortable: false,
     width: 130,
-    // valueGetter: (params: GridValueGetterParams) =>
-    //   `${params.row.datum || ""} ${params.row.tid || ""} ${
-    //     params.row.nivå || ""
-    //   } ${params.row.städare || ""}`,
   },
 ];
 
-const printId = (x: any) => {
-  x.field === "delete"
-    ? console.log(`Cellen är i fältet: "${x.field}" och id't är: "${x.id}"`)
-    : console.log("Cellen du klickat på är i fel fält");
-
-  // console.log(x.field);
-};
-
-// const handleDelete = (x: any) => {
+// const printId = (x: any) => {
 //   x.field === "delete"
-//     ? deleteBooking(x.id)
+//     ? console.log(`Cellen är i fältet: "${x.field}" och id't är: "${x.id}"`)
 //     : console.log("Cellen du klickat på är i fel fält");
 // };
 
-const handleOnCellClick: GridEventListener<"cellClick"> = (
-  params, // GridCellParams<any>
-  event, // MuiEvent<React.MouseEvent<HTMLElement>>
-  details // GridCallbackDetails
-) => {
-  printId(params);
-};
-
 const CurrentBookings = ({ bookings, deleteBooking }: ICurrentbookings) => {
+  const x: GridEventListener<"cellClick"> = (
+    params // GridCellParams<any>
+  ) => {
+    handleCellClick(params);
+  };
+  const handleCellClick = (x: any) => {
+    x.field === "delete"
+      ? deleteBooking(x.id)
+      : console.log("Cellen du klickat på är i fel fält");
+  };
   return (
     <div style={{ height: 400, width: 655, margin: "auto" }}>
       <Typography component="div" variant="h6">
@@ -83,15 +72,17 @@ const CurrentBookings = ({ bookings, deleteBooking }: ICurrentbookings) => {
         rows={bookings.map((x) => ({
           id: x.id,
           key: x.id,
-          datum: x.datum.toDate().toLocaleDateString("sv-SE"),
-          tid: x.datum.toDate().toLocaleTimeString("sv-SE"),
+          datum: x.datum.slice(0, 10),
+          // .toDate().toLocaleDateString("sv-SE"),
+          tid: x.datum.slice(11),
+          // toDate().toLocaleTimeString("sv-SE"),
           nivå: x.niva,
           städare: x.stadare,
         }))}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
-        onCellClick={handleOnCellClick}
+        onCellClick={x}
       />
     </div>
   );

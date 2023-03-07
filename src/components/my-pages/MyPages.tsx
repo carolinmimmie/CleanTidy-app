@@ -15,7 +15,7 @@ import MypagesHero from "./MypagesHero";
 import Hero from "./MypagesHero";
 import CompletedBookings from "./CompletedBookings";
 import CurrentBookings from "./CurrentBookings";
-import { IBooking } from "./interfaces";
+import { IBooking, INewBooking } from "./interfaces";
 import FormBooking from "./FormBooking";
 
 const MyPages = () => {
@@ -49,24 +49,39 @@ const MyPages = () => {
     getBookings();
   }, []);
 
-  const changeStatus = async (x: IBooking) => {
-    await updateDoc(doc(bookingsCollectionRef, x.id), {
-      status: !x.status,
-    });
-    getBookings();
-  };
+  // const changeStatus = async (x: IBooking) => {
+  //   await updateDoc(doc(bookingsCollectionRef, x.id), {
+  //     status: !x.status,
+  //   });
+  //   getBookings();
+  // };
 
   const deleteBooking = async (id: string) => {
     await deleteDoc(doc(bookingsCollectionRef, id));
     getBookings();
   };
 
-  const createBooking = async (bokning: IBooking) => {
+  const createBooking = async (bokning: INewBooking) => {
     await addDoc(bookingsCollectionRef, {
-      bokning,
+      datum: bokning.datum,
+      kund: bokning.kund,
+      niva: bokning.niva,
+      stadare: bokning.stadare,
+      status: bokning.status,
     });
     getBookings();
   };
+
+  // const createBooking = async () => {
+  //   await addDoc(bookingsCollectionRef, {
+  //     datum: "Datumen",
+  //     kund: "Jessica Clarkson",
+  //     niva: "",
+  //     stadare: "",
+  //     status: false,
+  //   });
+  //   getBookings();
+  // };
 
   // console.log(bookings);
 

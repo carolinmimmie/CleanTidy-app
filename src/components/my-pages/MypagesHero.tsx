@@ -1,9 +1,9 @@
 import React from "react";
 import FormBooking from "./FormBooking";
-import { IBooking } from "./interfaces";
+import { IBooking, INewBooking } from "./interfaces";
 
 interface qwp {
-  createBooking: (bokning: IBooking) => Promise<void>;
+  createBooking: (bokning: INewBooking) => Promise<void>;
 }
 
 const MypagesHero = ({ createBooking }: qwp) => {

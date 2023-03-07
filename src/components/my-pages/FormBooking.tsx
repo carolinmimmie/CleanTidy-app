@@ -3,17 +3,18 @@ import { time } from "console";
 import { Timestamp } from "firebase/firestore";
 import React from "react";
 import { useState } from "react";
-import { IBooking } from "./interfaces";
+import { IBooking, INewBooking } from "./interfaces";
 
 interface IFormData {
-  createBooking: (bokning: IBooking) => Promise<void>;
+  createBooking: (bokning: INewBooking) => Promise<void>;
 }
 
 const FormBooking = ({ createBooking }: IFormData) => {
   // a.	Skapa ett state för att lagar all input, koppla dess innhåll till ett interface som definerar upp vilken typ som får finnas i ditt userObjekt.
-  const [formData, setformData] = useState<IBooking>({
-    id: Math.random().toString(),
-    datum: new Timestamp(0, 0),
+  const [formData, setformData] = useState<INewBooking>({
+    // id: Math.random().toString(),
+    // datum: new Timestamp(0, 0),
+    datum: "",
     kund: "Jessica Clarkson",
     niva: "",
     stadare: "",
@@ -78,9 +79,9 @@ const FormBooking = ({ createBooking }: IFormData) => {
             type="radio"
             id="niva"
             name="niva"
-            value="basic"
+            value="Basic"
             onChange={handleChange}
-            checked={formData.niva === "basic"}
+            checked={formData.niva === "Basic"}
           ></input>
         </div>
         <div className="box-input">
@@ -91,9 +92,9 @@ const FormBooking = ({ createBooking }: IFormData) => {
             type="radio"
             id="niva"
             name="niva"
-            value="top"
+            value="Top"
             onChange={handleChange}
-            checked={formData.niva === "top"}
+            checked={formData.niva === "Top"}
           ></input>
         </div>
         <div className="box-input">
@@ -104,9 +105,9 @@ const FormBooking = ({ createBooking }: IFormData) => {
             type="radio"
             id="niva"
             name="niva"
-            value="diamant"
+            value="Diamant"
             onChange={handleChange}
-            checked={formData.niva === "diamant"}
+            checked={formData.niva === "Diamant"}
           ></input>
         </div>
         <div className="box-input">
@@ -117,9 +118,9 @@ const FormBooking = ({ createBooking }: IFormData) => {
             type="radio"
             id="niva"
             name="niva"
-            value="fönster"
+            value="Fönster"
             onChange={handleChange}
-            checked={formData.niva === "fönster"}
+            checked={formData.niva === "Fönster"}
           ></input>
         </div>
       </div>
