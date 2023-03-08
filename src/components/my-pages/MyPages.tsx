@@ -62,7 +62,14 @@ const MyPages = () => {
   };
 
   const createBooking = async (bokning: IBooking) => {
-    await addDoc(bookingsCollectionRef, {
+    //     console.log("Befintliga bokningar");
+    // console.log(currentBookings.map((x) => x.datum.slice(0, 10)));
+    // console.log(bokning.datum.slice(0, 10));
+    // currentBookings.filter((x) => x.datum.slice(0, 10) === bokning.datum.slice(0, 10))
+    
+    //   ? alert("Det datumet finns redan")
+    //   :
+      await addDoc(bookingsCollectionRef, {
       datum: bokning.datum,
       kund: bokning.kund,
       niva: bokning.niva,
