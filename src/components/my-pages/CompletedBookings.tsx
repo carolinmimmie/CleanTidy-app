@@ -34,15 +34,15 @@ const CompletedBookings = ({ bookings }: ICompletedBookings) => {
   const CustomFooter = () => {
     return (
       <GridFooterContainer>
-        <Button 
+        <Button
           sx={{
             ml: 1,
-            bgcolor: " #a09d99;",
-            ":hover": { bgcolor: " #a09d99;" },
+            bgcolor: " rgba(000000, 0, 0, 0.8);",
+            ":hover": { bgcolor: "black ;" },
           }}
           variant="contained"
         >
-          Ta bort alla markerade
+          Ta bort markerade
         </Button>
         <GridFooter
           sx={{
