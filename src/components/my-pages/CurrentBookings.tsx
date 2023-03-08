@@ -1,14 +1,8 @@
 import * as React from "react";
-import {
-  DataGrid,
-  GridColDef,
-  GridEventListener,
-  GridValueGetterParams,
-} from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridEventListener } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Typography } from "@mui/material";
 import { IBooking } from "./interfaces";
-import { useParams } from "react-router-dom";
 
 interface ICurrentbookings {
   currentBookings: IBooking[];
@@ -18,13 +12,14 @@ interface ICurrentbookings {
 const columns: GridColDef[] = [
   {
     field: "delete",
-    headerName: "Delete",
-    width: 55,
+    headerName: "Del",
+    width: 50,
     sortable: false,
+    disableColumnMenu: true,
+
     renderCell: () => {
       return (
         <DeleteIcon
-          // onClick={() => deleteBooking(x.id)}
           sx={{
             "&:hover": {
               cursor: "pointer",
