@@ -16,7 +16,7 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
     id: "",
     // datum: new Timestamp(0, 0),
     datum: "",
-    kund: `${currentBookings.map(x=>x.kund).at(0)}`,
+    kund: `${currentBookings.map((x) => x.kund).at(0)}`,
     niva: "",
     stadare: "",
     status: false,
@@ -34,23 +34,21 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
   // d.	Skapa en handleSubmit som du refererar till på din <form> onSubmit.
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
-    // currentBookings.map((x) => (x.datum == formData.datum))
-    //   ? alert("Kan inte boka!")
-    //   : // currentBookings.map(
-        //   (x) =>
-        //     x.datum.slice(0, 10) === formData.datum.slice(0, 10) &&
-        //     x.niva === formData.niva &&
-        //     x.stadare === formData.stadare
-        // )
-        //   ? alert("Det datumet finns redan")
-        //   :
-        console.log("formData");
-    console.log(formData);
-    console.log("CurrentBookings som har skickats ner från MyPages");
-    console.log(currentBookings);
-    createBooking(formData);
+    const exists = currentBookings.findIndex(
+      (x) =>
+        x.datum.slice(0, 10) === formData.datum.slice(0, 10) && //kollar datumet
+        x.datum.slice(11) === formData.datum.slice(11) && //kollar tid
+        x.niva === formData.niva &&
+        x.stadare === formData.stadare
+    );
+    console.log(exists);
+    exists > -1
+      ? alert("Kan inte boka! Bokningen finns redan")
+      : createBooking(formData);
+
     // e.	I den kan du consol.loga formData för att se att hela formuläret är kopplat till ett objekt som skulle kunna skickas till backend.
   };
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <h2>Boka ny Städning:</h2>
