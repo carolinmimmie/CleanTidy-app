@@ -8,11 +8,11 @@ const Section3 = () => {
         att höra av dig. Det kanske är just dig vi söker?"
       </p>
       <Button
-        variant="contained"
         sx={{
-          bgcolor: " #a09d99;",
-          ":hover": { bgcolor: " #a09d99;" },
+          bgcolor: " rgba(000000, 0, 0, 0.8);",
+          ":hover": { bgcolor: "black ;" },
         }}
+        variant="contained"
       >
         Ansök
       </Button>

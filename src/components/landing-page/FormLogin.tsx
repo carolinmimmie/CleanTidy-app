@@ -1,4 +1,4 @@
-import { Switch } from "@mui/material";
+import { Button, Switch } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -22,9 +22,20 @@ const FormLogin = () => {
         ></input>
       </div>
       <div className="button-box">
-        <button onClick={handleClick} className="button-form" type="submit">
+        {/* <button onClick={handleClick} className="button-form" type="submit">
           Logga in
-        </button>
+        </button> */}
+        <Button
+          onClick={handleClick}
+          type="submit"
+          sx={{
+            bgcolor: " rgba(000000, 0, 0, 0.8);",
+            ":hover": { bgcolor: "black ;" },
+          }}
+          variant="contained"
+        >
+          Logga in
+        </Button>
       </div>
     </form>
 
