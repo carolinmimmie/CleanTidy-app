@@ -85,7 +85,7 @@ const Nav = (props: Props) => {
 
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((x) => (
-              <Link className="link-class" to={`/${x}`}>
+              <Link key={x} className="link-class" to={`/${x}`}>
                 {x}
               </Link>
             ))}
