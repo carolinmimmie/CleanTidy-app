@@ -75,6 +75,7 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
         <select
           id="stadare"
           name="stadare"
+          required
           value={formData.stadare}
           onChange={handleChange}
         >
@@ -94,6 +95,7 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
             type="radio"
             id="niva"
             name="niva"
+            required
             value="Basic"
             onChange={handleChange}
             checked={formData.niva === "Basic"}
