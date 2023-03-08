@@ -51,7 +51,14 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <h2>Boka ny Städning:</h2>
+        {
+        currentBookings.map((x) => (
+          <h2 className="kund" key={x.id}>
+            {`Välkommen ${x.kund}`}
+          </h2>
+        ))[0]
+      }
+      <p className="underrubrik-form">Boka ny Städning:</p>
       <div className="box"></div>
       <div className="box">
         <input

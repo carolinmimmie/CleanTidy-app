@@ -11,19 +11,14 @@ const FormLogin = () => {
     <form className="form">
       <h2>Logga in:</h2>
       <div className="box">
-        <input
-          type="text"
-          id="epost"
-          name="epost"
-          placeholder="E-postadress"
-        ></input>
+        <input type="text" id="epost" name="epost" value="E-postadress"></input>
       </div>
       <div className="box">
         <input
           type="password"
           id="password"
           name="password"
-          placeholder="Lösenord"
+          value="Lösenord"
         ></input>
       </div>
       <div className="button-box">

@@ -25,6 +25,7 @@ const MyPages = () => {
   const qCurrent = query(bookingsCollectionRef, where("status", "==", false));
   const qCompleted = query(bookingsCollectionRef, where("status", "==", true));
 
+
   const getBookings = async () => {
     const dataCurrent = await getDocs(qCurrent);
 
@@ -91,13 +92,13 @@ const MyPages = () => {
         createBooking={createBooking}
         currentBookings={currentBookings}
       ></MypagesHero>
-      {
+      {/* {
         currentBookings.map((x) => (
           <h2 className="titelMypages" key={x.id}>
             {`Välkommen ${x.kund}`}
           </h2>
         ))[0]
-      }
+      } */}
 
       <Box className="my-pages">
         {/* <Form createBooking={createBooking}></Form> */}

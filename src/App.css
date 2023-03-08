@@ -1,8 +1,5 @@
 /* hero */
 .hero {
-  /* background-image: url(./Images/clean-apartment.jpg); */
-  /* background-image:  url(../../../assets/bilder/clean-apartment.jpg); */
-  /* background-image: image-set(src= "./Images/clean-apartment.jpg"); */
   background-size: cover;
   height: 700px;
   background-position: center;
@@ -11,18 +8,8 @@
   position: relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(./Images/clean-apartment.jpg);
-
-  /* display: flex;
-  justify-content: center;
-  align-items: left;
-  flex-direction: row; */
 }
 
-/* @media (max-width: 1024px) {
-  .hero {
-    height: 80%;
-  }
-} */
 /* section1, section2, section3 */
 .rubrik {
   font-size: 2rem;
@@ -98,53 +85,12 @@
 
 /* mina sidor */
 .my-pages {
-  /* margin-top: 6rem; */
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   gap: 4rem;
   padding: 3rem;
 }
-/* form log-in */
-/* .form-container {
-  background-color: white;
-  width: 40%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 3rem;
-} 
-input,
-button {
-  height: 45px;
-  margin-bottom: 1rem;
-  border-radius: 4px;
-  border: 2px solid rgb(232, 229, 229);
-  font-size: 1rem;
-} */
-
-/* .switch {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-} */
-/* 
-.log-in {
-  background-color: #95b995;
-} */
-
-/* * {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-} */
-
-* {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 /* Navbar */
 .link-class {
   width: 200px;
@@ -166,6 +112,14 @@ button {
   font-size: 1.8rem;
   text-decoration: none;
   color: black;
+}
+
+.kund {
+  font-size: 2rem;
+}
+.underrubrik-form {
+  font-size: 1.3rem;
+  margin-top: -1rem;
 }
 
 /* Form*/
@@ -239,13 +193,6 @@ input[type="radio"] {
 .button-form:hover {
   background-color: black;
   color: white;
-}
-
-.titelMypages {
-  font-size: 2.5rem;
-  margin-top: 3rem;
-  padding: 5rem;
-  text-align: center;
 }
 
 /* Media Queries */
