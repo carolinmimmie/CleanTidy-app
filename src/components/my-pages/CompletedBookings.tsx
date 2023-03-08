@@ -1,7 +1,15 @@
 import * as React from "react";
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridColDef,
+  GridFooter,
+  GridFooterContainer,
+  GridValueGetterParams,
+} from "@mui/x-data-grid";
 import Typography from "@mui/material/Typography";
 import { IBooking } from "./interfaces";
+import { Button } from "@mui/material";
+import Footer from "../Footer";
 
 interface ICompletedBookings {
   bookings: IBooking[];
@@ -23,6 +31,20 @@ const columns: GridColDef[] = [
 ];
 
 const CompletedBookings = ({ bookings }: ICompletedBookings) => {
+  const CustomFooter = () => {
+    return (
+      <GridFooterContainer>
+        <Button sx={{ ml: 1 }} variant="contained">
+          Ta bort alla markerade
+        </Button>
+        <GridFooter
+          sx={{
+            border: "none", // To delete double border.
+          }}
+        />
+      </GridFooterContainer>
+    );
+  };
   return (
     <div style={{ height: 400, width: 655, margin: "auto" }}>
       <Typography component="div" variant="h6">
@@ -43,6 +65,7 @@ const CompletedBookings = ({ bookings }: ICompletedBookings) => {
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
+        components={{ Footer: CustomFooter }}
       />
     </div>
   );

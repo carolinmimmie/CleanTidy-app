@@ -25,7 +25,6 @@ const MyPages = () => {
   const qCurrent = query(bookingsCollectionRef, where("status", "==", false));
   const qCompleted = query(bookingsCollectionRef, where("status", "==", true));
 
-
   const getBookings = async () => {
     const dataCurrent = await getDocs(qCurrent);
 
@@ -63,7 +62,7 @@ const MyPages = () => {
   };
 
   const createBooking = async (bokning: IBooking) => {
-      await addDoc(bookingsCollectionRef, {
+    await addDoc(bookingsCollectionRef, {
       datum: bokning.datum,
       kund: bokning.kund,
       niva: bokning.niva,
