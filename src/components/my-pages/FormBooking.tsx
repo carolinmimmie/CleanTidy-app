@@ -63,6 +63,7 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
       <div className="box"></div>
       <div className="box">
         <input
+          style={{ border: "1px" }}
           type="datetime-local"
           id="datum"
           name="datum"
