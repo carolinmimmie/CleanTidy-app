@@ -15,7 +15,7 @@ import MypagesHero from "./MypagesHero";
 import Hero from "./MypagesHero";
 import CompletedBookings from "./CompletedBookings";
 import CurrentBookings from "./CurrentBookings";
-import { IBooking, INewBooking } from "./interfaces";
+import { IBooking } from "./interfaces";
 import FormBooking from "./FormBooking";
 
 const MyPages = () => {
@@ -61,7 +61,7 @@ const MyPages = () => {
     getBookings();
   };
 
-  const createBooking = async (bokning: INewBooking) => {
+  const createBooking = async (bokning: IBooking) => {
     await addDoc(bookingsCollectionRef, {
       datum: bokning.datum,
       kund: bokning.kund,
@@ -87,7 +87,10 @@ const MyPages = () => {
 
   return (
     <>
-      <MypagesHero createBooking={createBooking}></MypagesHero>
+      <MypagesHero
+        createBooking={createBooking}
+        currentBookings={currentBookings}
+      ></MypagesHero>
       {
         currentBookings.map((x) => (
           <h2 className="titelMypages" key={x.id}>

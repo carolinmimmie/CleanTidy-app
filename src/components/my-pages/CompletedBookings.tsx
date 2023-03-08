@@ -1,7 +1,7 @@
 import * as React from "react";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import Typography from "@mui/material/Typography";
-import { IBooking, INewBooking } from "./interfaces";
+import { IBooking } from "./interfaces";
 
 interface ICompletedBookings {
   bookings: IBooking[];

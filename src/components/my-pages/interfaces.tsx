@@ -9,12 +9,12 @@ interface IBooking {
   status: boolean;
 }
 
-interface INewBooking {
-  datum: string;
-  kund: string;
-  niva: string;
-  stadare: string;
-  status: boolean;
-}
+// interface INewBooking {
+//   datum: string;
+//   kund: string;
+//   niva: string;
+//   stadare: string;
+//   status: boolean;
+// }
 
-export type { IBooking, INewBooking };
+export type { IBooking };
