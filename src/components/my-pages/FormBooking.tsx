@@ -1,4 +1,5 @@
 import { FormatAlignLeftSharp } from "@mui/icons-material";
+import { Button } from "@mui/material";
 import { time } from "console";
 import { Timestamp } from "firebase/firestore";
 import React from "react";
@@ -51,7 +52,7 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-        {
+      {
         currentBookings.map((x) => (
           <h2 className="kund" key={x.id}>
             {`Välkommen ${x.kund}`}
@@ -143,9 +144,19 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
       </div>
 
       <div className="button-box">
-        <button className="button-form" type="submit">
+        {/* <button className="button-form" type="submit">
           Lägg till bokning
-        </button>
+        </button> */}
+        <Button
+          type="submit"
+          sx={{
+            bgcolor: " rgba(000000, 0, 0, 0.8);",
+            ":hover": { bgcolor: "black ;" },
+          }}
+          variant="contained"
+        >
+          Lägg till bokning
+        </Button>
       </div>
     </form>
   );

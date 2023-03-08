@@ -12,7 +12,7 @@ import { Button } from "@mui/material";
 import Footer from "../Footer";
 
 interface ICompletedBookings {
-  bookings: IBooking[];
+  completedBookings: IBooking[];
 }
 
 const columns: GridColDef[] = [
@@ -30,7 +30,7 @@ const columns: GridColDef[] = [
   },
 ];
 
-const CompletedBookings = ({ bookings }: ICompletedBookings) => {
+const CompletedBookings = ({ completedBookings }: ICompletedBookings) => {
   const CustomFooter = () => {
     return (
       <GridFooterContainer>
@@ -58,7 +58,7 @@ const CompletedBookings = ({ bookings }: ICompletedBookings) => {
         Utförda Bokningar
       </Typography>
       <DataGrid
-        rows={bookings.map((x) => ({
+        rows={completedBookings.map((x) => ({
           id: x.id,
           key: x.id,
           datum: x.datum,

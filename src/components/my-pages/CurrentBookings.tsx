@@ -11,7 +11,7 @@ import { IBooking } from "./interfaces";
 import { useParams } from "react-router-dom";
 
 interface ICurrentbookings {
-  bookings: IBooking[];
+  currentBookings: IBooking[];
   deleteBooking: (id: string) => Promise<void>;
 }
 
@@ -52,7 +52,10 @@ const columns: GridColDef[] = [
 //     : console.log("Cellen du klickat på är i fel fält");
 // };
 
-const CurrentBookings = ({ bookings, deleteBooking }: ICurrentbookings) => {
+const CurrentBookings = ({
+  currentBookings,
+  deleteBooking,
+}: ICurrentbookings) => {
   const x: GridEventListener<"cellClick"> = (
     params // GridCellParams<any>
   ) => {
@@ -69,7 +72,7 @@ const CurrentBookings = ({ bookings, deleteBooking }: ICurrentbookings) => {
         Kommande Bokningar
       </Typography>
       <DataGrid
-        rows={bookings.map((x) => ({
+        rows={currentBookings.map((x) => ({
           id: x.id,
           key: x.id,
           datum: x.datum.slice(0, 10),

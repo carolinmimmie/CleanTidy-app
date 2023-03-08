@@ -103,10 +103,12 @@ const MyPages = () => {
         {/* <Form createBooking={createBooking}></Form> */}
         {/* <FormBooking></FormBooking> */}
         <CurrentBookings
-          bookings={currentBookings}
+          currentBookings={currentBookings}
           deleteBooking={deleteBooking}
         ></CurrentBookings>
-        <CompletedBookings bookings={completedBookings}></CompletedBookings>
+        <CompletedBookings
+          completedBookings={completedBookings}
+        ></CompletedBookings>
       </Box>
     </>
   );
