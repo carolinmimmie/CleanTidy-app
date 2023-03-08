@@ -37,7 +37,7 @@ const columns: GridColDef[] = [
     field: "städare",
     headerName: "Städare",
     sortable: false,
-    width: 130,
+    width: 120,
   },
 ];
 
@@ -62,7 +62,7 @@ const CurrentBookings = ({
       : console.log("Cellen du klickat på är i fel fält");
   };
   return (
-    <div style={{ height: 400, width: 655, margin: "auto" }}>
+    <div style={{ height: 400, width: 555 }}>
       <Typography component="div" variant="h6">
         Kommande Bokningar
       </Typography>

@@ -22,11 +22,8 @@ const columns: GridColDef[] = [
   {
     field: "städare",
     headerName: "Städare",
-    // description: "This column has a value getter and is not sortable.",
     sortable: false,
     width: 120,
-    // valueGetter: (params: GridValueGetterParams) =>
-    //   `${params.row.firstName || ""} ${params.row.lastName || ""}`,
   },
 ];
 
@@ -46,14 +43,14 @@ const CompletedBookings = ({ completedBookings }: ICompletedBookings) => {
         </Button>
         <GridFooter
           sx={{
-            border: "none", // To delete double border.
+            border: "none", 
           }}
         />
       </GridFooterContainer>
     );
   };
   return (
-    <div style={{ height: 400, width: 655, margin: "auto" }}>
+    <div style={{ height: 400, width: 555 }}>
       <Typography component="div" variant="h6">
         Utförda Bokningar
       </Typography>

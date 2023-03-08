@@ -72,36 +72,14 @@ const MyPages = () => {
     getBookings();
   };
 
-  // const createBooking = async () => {
-  //   await addDoc(bookingsCollectionRef, {
-  //     datum: "Datumen",
-  //     kund: "Jessica Clarkson",
-  //     niva: "",
-  //     stadare: "",
-  //     status: false,
-  //   });
-  //   getBookings();
-  // };
-
-  // console.log(bookings);
-
   return (
     <>
       <MypagesHero
         createBooking={createBooking}
         currentBookings={currentBookings}
       ></MypagesHero>
-      {/* {
-        currentBookings.map((x) => (
-          <h2 className="titelMypages" key={x.id}>
-            {`Välkommen ${x.kund}`}
-          </h2>
-        ))[0]
-      } */}
 
       <Box className="my-pages">
-        {/* <Form createBooking={createBooking}></Form> */}
-        {/* <FormBooking></FormBooking> */}
         <CurrentBookings
           currentBookings={currentBookings}
           deleteBooking={deleteBooking}

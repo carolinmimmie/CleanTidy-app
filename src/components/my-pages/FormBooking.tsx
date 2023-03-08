@@ -73,7 +73,6 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
         ></input>
       </div>
       <div className="box">
-        {/* <label htmlFor="cleaner">Välj städare:</label> */}
         <select
           id="stadare"
           name="stadare"
@@ -145,9 +144,6 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
       </div>
 
       <div className="button-box">
-        {/* <button className="button-form" type="submit">
-          Lägg till bokning
-        </button> */}
         <Button
           type="submit"
           sx={{

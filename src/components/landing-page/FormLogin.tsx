@@ -22,9 +22,6 @@ const FormLogin = () => {
         ></input>
       </div>
       <div className="button-box">
-        {/* <button onClick={handleClick} className="button-form" type="submit">
-          Logga in
-        </button> */}
         <Button
           onClick={handleClick}
           type="submit"
