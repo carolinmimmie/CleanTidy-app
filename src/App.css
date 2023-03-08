@@ -1,4 +1,6 @@
-/* hero */
+body {
+  margin: 0%;
+} /* hero */
 .hero {
   background-size: cover;
   height: 700px;
