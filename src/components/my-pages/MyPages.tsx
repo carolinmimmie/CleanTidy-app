@@ -81,7 +81,7 @@ const MyPages = () => {
       ></MypagesHero>
 
       <Box className="my-pages">
-        <CurrentBookings
+        <CurrentBookings 
           currentBookings={currentBookings}
           deleteBooking={deleteBooking}
         ></CurrentBookings>

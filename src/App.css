@@ -1,6 +1,30 @@
 body {
   margin: 0%;
-} /* hero */
+}
+/* Navbar */
+.link-class {
+  width: 200px;
+  margin: auto;
+  text-align: center;
+  margin: 0.8rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: black;
+}
+.link-class:hover {
+  opacity: 0.5;
+}
+.link-logga {
+  width: 200px;
+  margin: auto;
+  text-align: center;
+  margin: 0.8rem;
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: black;
+}
+
+/* Hero */
 .hero {
   background-size: cover;
   height: 700px;
@@ -12,7 +36,7 @@ body {
     url(./Images/clean-apartment.jpg);
 }
 
-/* section1, section2, section3 */
+/* Section1, Section2, Section3 */
 .rubrik {
   font-size: 2rem;
   margin-top: 5rem;
@@ -38,7 +62,6 @@ body {
   padding-bottom: 4rem;
 }
 
-/* Section2 */
 .section2 {
   display: flex;
   flex-direction: column;
@@ -54,9 +77,7 @@ body {
   align-items: center;
   justify-content: space-evenly;
 }
-.cirkel1,
-.cirkel2,
-.cirkel3 {
+.cirkel-box {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,38 +106,16 @@ body {
   line-height: 1.7rem;
 }
 
-/* mina sidor */
+/* Mina sidor */
 .my-pages {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  /* gap: 1rem; */
   padding: 3rem;
   margin-bottom: 3rem;
 }
-/* Navbar */
-.link-class {
-  width: 200px;
-  margin: auto;
-  text-align: center;
-  margin: 0.8rem;
-  font-size: 1.1rem;
-  text-decoration: none;
-  color: black;
-}
-.link-class:hover {
-  opacity: 0.5;
-}
-.link-logga {
-  width: 200px;
-  margin: auto;
-  text-align: center;
-  margin: 0.8rem;
-  font-size: 1.8rem;
-  text-decoration: none;
-  color: black;
-}
 
+/* Form*/
 .kund {
   font-size: 2rem;
 }
@@ -124,8 +123,6 @@ body {
   font-size: 1.3rem;
   margin-top: -1rem;
 }
-
-/* Form*/
 form {
   position: absolute;
   top: 50%;
@@ -142,8 +139,6 @@ select {
   margin-bottom: 1rem;
   border-radius: 4px;
   font-size: 1.1rem;
-  /* background-color: rgba(000000, 0, 0, 0.8); */
-  /* background-color: white; */
   color: black;
 }
 
@@ -200,6 +195,9 @@ input[type="radio"] {
 
 /* Media Queries */
 @media (max-width: 1024px) {
+  .text {
+    width: 400px;
+  }
   .cirklarna {
     margin-top: -3rem;
     display: flex;
@@ -214,5 +212,12 @@ input[type="radio"] {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+  }
+  .my-pages {
+    display: flex;
+    flex-direction: column;
+  }
+  .completedbookings {
+    margin-top: 4rem;
   }
 }

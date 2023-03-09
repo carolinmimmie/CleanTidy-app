@@ -82,14 +82,12 @@ const Section1 = () => {
               sx={{
                 bgcolor: " #f5f4f2",
                 fontSize: "7rem",
-                // use summary background color
               }}
             >
               <Typography
                 sx={{
                   fontSize: "1.3rem",
                   padding: "1.2rem",
-                  // use summary background color
                 }}
               >
                 BasicStädning
@@ -97,7 +95,7 @@ const Section1 = () => {
             </AccordionSummary>
             <AccordionDetails
               sx={{
-                bgcolor: " #f5f4f2", // use summary background color
+                bgcolor: " #f5f4f2",
               }}
             >
               <Typography>
@@ -113,13 +111,13 @@ const Section1 = () => {
               aria-controls="panel2a-content"
               id="panel2a-header"
               sx={{
-                bgcolor: " #f5f4f2", // use summary background color
+                bgcolor: " #f5f4f2",
               }}
             >
               <Typography
                 sx={{
                   fontSize: "1.3rem",
-                  padding: "1.2rem", // use summary background color
+                  padding: "1.2rem",
                 }}
               >
                 TopStädning
@@ -127,7 +125,7 @@ const Section1 = () => {
             </AccordionSummary>
             <AccordionDetails
               sx={{
-                bgcolor: " #f5f4f2", // use summary background color
+                bgcolor: " #f5f4f2",
               }}
             >
               <Typography>
@@ -152,13 +150,13 @@ const Section1 = () => {
               aria-controls="panel2a-content"
               id="panel2a-header"
               sx={{
-                bgcolor: " #f5f4f2", // use summary background color
+                bgcolor: " #f5f4f2",
               }}
             >
               <Typography
                 sx={{
                   fontSize: "1.3rem",
-                  padding: "1.2rem", // use summary background color
+                  padding: "1.2rem",
                 }}
               >
                 DiamantStädning
@@ -166,7 +164,7 @@ const Section1 = () => {
             </AccordionSummary>
             <AccordionDetails
               sx={{
-                bgcolor: " #f5f4f2", // use summary background color
+                bgcolor: " #f5f4f2",
               }}
             >
               <Typography>
@@ -182,13 +180,13 @@ const Section1 = () => {
               aria-controls="panel2a-content"
               id="panel2a-header"
               sx={{
-                bgcolor: " #f5f4f2", // use summary background color
+                bgcolor: " #f5f4f2",
               }}
             >
               <Typography
                 sx={{
                   fontSize: "1.3rem",
-                  padding: "1.2rem", // use summary background color
+                  padding: "1.2rem",
                 }}
               >
                 FönsterPuts
@@ -196,7 +194,7 @@ const Section1 = () => {
             </AccordionSummary>
             <AccordionDetails
               sx={{
-                bgcolor: " #f5f4f2", // use summary background color
+                bgcolor: " #f5f4f2",
               }}
             >
               <Typography>
