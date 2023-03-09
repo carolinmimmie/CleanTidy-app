@@ -74,9 +74,9 @@ const CompletedBookings = ({
         rows={completedBookings.map((x) => ({
           id: x.id,
           key: x.id,
-          datum: x.datum,
+          datum: x.datum.slice(0, 10),
           // .toDate().toLocaleDateString("sv-SE"),
-          tid: x.datum,
+          tid: x.datum.slice(11),
           // .toDate().toLocaleTimeString("sv-SE"),
           nivå: x.niva,
           städare: x.stadare,
