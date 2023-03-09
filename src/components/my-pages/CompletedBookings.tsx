@@ -4,15 +4,18 @@ import {
   GridColDef,
   GridFooter,
   GridFooterContainer,
+  GridSelectionModel,
   GridValueGetterParams,
 } from "@mui/x-data-grid";
 import Typography from "@mui/material/Typography";
 import { IBooking } from "./interfaces";
 import { Button } from "@mui/material";
 import Footer from "../Footer";
+import { useState } from "react";
 
 interface ICompletedBookings {
   completedBookings: IBooking[];
+  deleteBooking: (id: string) => Promise<void>;
 }
 
 const columns: GridColDef[] = [
@@ -27,11 +30,23 @@ const columns: GridColDef[] = [
   },
 ];
 
-const CompletedBookings = ({ completedBookings }: ICompletedBookings) => {
+const CompletedBookings = ({
+  completedBookings,
+  deleteBooking,
+}: ICompletedBookings) => {
+  const [rowIds, setRowIds] = useState<GridSelectionModel>([]);
+  const handleDeleteChecked = () => {
+    // deleteBooking(rowIds.toString());
+    console.log(rowIds);
+
+    rowIds.forEach((x) => deleteBooking(x.toString()));
+    rowIds.forEach((x) => console.log(x.toString()));
+  };
   const CustomFooter = () => {
     return (
       <GridFooterContainer>
         <Button
+          onClick={handleDeleteChecked}
           sx={{
             ml: 1,
             bgcolor: " rgba(000000, 0, 0, 0.8);",
@@ -43,12 +58,13 @@ const CompletedBookings = ({ completedBookings }: ICompletedBookings) => {
         </Button>
         <GridFooter
           sx={{
-            border: "none", 
+            border: "none",
           }}
         />
       </GridFooterContainer>
     );
   };
+
   return (
     <div style={{ height: 400, width: 555 }}>
       <Typography component="div" variant="h6">
@@ -70,6 +86,10 @@ const CompletedBookings = ({ completedBookings }: ICompletedBookings) => {
         rowsPerPageOptions={[5]}
         checkboxSelection
         components={{ Footer: CustomFooter }}
+        onSelectionModelChange={(id) => {
+          setRowIds(id);
+          console.log(id);
+        }}
       />
     </div>
   );

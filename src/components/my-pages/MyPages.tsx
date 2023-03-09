@@ -17,6 +17,7 @@ import CompletedBookings from "./CompletedBookings";
 import CurrentBookings from "./CurrentBookings";
 import { IBooking } from "./interfaces";
 import FormBooking from "./FormBooking";
+import { GridSelectionModel } from "@mui/x-data-grid";
 
 const MyPages = () => {
   const [currentBookings, setCurrentBookings] = useState<IBooking[]>([]);
@@ -86,6 +87,7 @@ const MyPages = () => {
         ></CurrentBookings>
         <CompletedBookings
           completedBookings={completedBookings}
+          deleteBooking={deleteBooking}
         ></CompletedBookings>
       </Box>
     </>
