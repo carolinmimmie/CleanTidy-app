@@ -17,7 +17,7 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
     id: "",
     // datum: new Timestamp(0, 0),
     datum: "",
-    kund: `${currentBookings.map((x) => x.kund).at(0)}`,
+    kund: `${currentBookings.map((x) => x.kund).at(-1)}`,
     niva: "",
     stadare: "",
     status: false,
