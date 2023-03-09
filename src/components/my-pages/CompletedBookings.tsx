@@ -66,7 +66,7 @@ const CompletedBookings = ({
   };
 
   return (
-    <div style={{ height: 400, width: 555 }}>
+    <div className=" completedbookings" style={{ height: 400, width: 555 }}>
       <Typography component="div" variant="h6">
         Utförda Bokningar
       </Typography>

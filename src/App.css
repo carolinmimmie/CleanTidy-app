@@ -215,4 +215,13 @@ input[type="radio"] {
     transform: translate(-50%, -50%);
     color: white;
   }
+  .my-pages {
+    display: flex;
+    flex-direction: column;
+      }
+    .completedbookings{
+      margin-top: 4rem;
+    }
+
+
 }
