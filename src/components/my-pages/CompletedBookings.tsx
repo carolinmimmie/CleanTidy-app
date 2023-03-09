@@ -37,7 +37,7 @@ const CompletedBookings = ({
   const [rowIds, setRowIds] = useState<GridSelectionModel>([]);
   const handleDeleteChecked = () => {
     // deleteBooking(rowIds.toString());
-    console.log(rowIds);
+    console.log(rowIds.toString());
 
     rowIds.forEach((x) => deleteBooking(x.toString()));
     rowIds.forEach((x) => console.log(x.toString()));
@@ -88,7 +88,6 @@ const CompletedBookings = ({
         components={{ Footer: CustomFooter }}
         onSelectionModelChange={(id) => {
           setRowIds(id);
-          console.log(id);
         }}
       />
     </div>
