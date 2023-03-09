@@ -5,7 +5,7 @@ const Section2 = () => {
     <div className="section2">
       <h3 className="rubrik">Varför välja städaFint?</h3>
       <div className="cirklarna">
-        <div className="cirkel1">
+        <div className="cirkel-box">
           <div className="cirkel">
             <img
               className="cirkel-img"
@@ -19,7 +19,7 @@ const Section2 = () => {
           </p>
         </div>
 
-        <div className="cirkel2">
+        <div className="cirkel-box">
           <div className="cirkel">
             <img
               className="cirkel-img"
@@ -33,7 +33,7 @@ const Section2 = () => {
           </p>
         </div>
 
-        <div className="cirkel3">
+        <div className="cirkel-box">
           <div className="cirkel">
             <img
               className="cirkel-img"
