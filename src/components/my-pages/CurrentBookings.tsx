@@ -1,12 +1,13 @@
 import * as React from "react";
 import { DataGrid, GridColDef, GridEventListener } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { IBooking } from "./interfaces";
 
 interface ICurrentbookings {
   currentBookings: IBooking[];
   deleteBooking: (id: string) => Promise<void>;
+  changeStatus: (id: string) => Promise<void>;
 }
 
 const columns: GridColDef[] = [
@@ -39,6 +40,29 @@ const columns: GridColDef[] = [
     sortable: false,
     width: 120,
   },
+  {
+    field: "update",
+    headerName: "Update",
+    width: 120,
+    sortable: false,
+    disableColumnMenu: true,
+
+    renderCell: () => {
+      return (
+        <Button
+          // onClick={changeStatus}
+          sx={{
+            ml: 1,
+            bgcolor: " rgba(000000, 0, 0, 0.8);",
+            ":hover": { bgcolor: "black ;" },
+          }}
+          variant="contained"
+        >
+          Klar
+        </Button>
+      );
+    },
+  },
 ];
 
 // const printId = (x: any) => {
@@ -50,19 +74,32 @@ const columns: GridColDef[] = [
 const CurrentBookings = ({
   currentBookings,
   deleteBooking,
+  changeStatus,
 }: ICurrentbookings) => {
   const x: GridEventListener<"cellClick"> = (
     params // GridCellParams<any>
   ) => {
-    handleCellClick(params);
+    handleDeleteClick(params);
+    handleUpdateClick(params);
   };
-  const handleCellClick = (x: any) => {
+  // const y: GridEventListener<"cellClick"> = (
+  //   params // GridCellParams<any>
+  // ) => {
+  //   handleUpdateClick(params);
+  // };
+  const handleDeleteClick = (x: any) => {
     x.field === "delete"
       ? deleteBooking(x.id)
       : console.log("Cellen du klickat på är i fel fält");
   };
+
+  const handleUpdateClick = (x: any) => {
+    x.field === "update"
+      ? changeStatus(x)
+      : console.log("Cellen du klickat på är i fel fält");
+  };
   return (
-    <div className="currentbookings" style={{ height: 400, width: 555 }}>
+    <div className="currentbookings" style={{ height: 400, width: 655 }}>
       <Typography component="div" variant="h6">
         Kommande Bokningar
       </Typography>
@@ -81,6 +118,7 @@ const CurrentBookings = ({
         pageSize={5}
         rowsPerPageOptions={[5]}
         onCellClick={x}
+        // onCellClick={y}
       />
     </div>
   );

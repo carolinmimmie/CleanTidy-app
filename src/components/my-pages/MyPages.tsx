@@ -50,12 +50,12 @@ const MyPages = () => {
     getBookings();
   }, []);
 
-  // const changeStatus = async (x: IBooking) => {
-  //   await updateDoc(doc(bookingsCollectionRef, x.id), {
-  //     status: !x.status,
-  //   });
-  //   getBookings();
-  // };
+  const changeStatus = async (x: any) => {
+    await updateDoc(doc(bookingsCollectionRef, x.id), {
+      status: !x.status,
+    });
+    getBookings();
+  };
 
   const deleteBooking = async (id: string) => {
     await deleteDoc(doc(bookingsCollectionRef, id));
@@ -81,9 +81,10 @@ const MyPages = () => {
       ></MypagesHero>
 
       <Box className="my-pages">
-        <CurrentBookings 
+        <CurrentBookings
           currentBookings={currentBookings}
           deleteBooking={deleteBooking}
+          changeStatus={changeStatus}
         ></CurrentBookings>
         <CompletedBookings
           completedBookings={completedBookings}
