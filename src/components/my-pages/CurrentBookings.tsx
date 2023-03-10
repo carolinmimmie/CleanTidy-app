@@ -82,21 +82,19 @@ const CurrentBookings = ({
     handleDeleteClick(params);
     handleUpdateClick(params);
   };
-  // const y: GridEventListener<"cellClick"> = (
-  //   params // GridCellParams<any>
-  // ) => {
-  //   handleUpdateClick(params);
-  // };
+  
   const handleDeleteClick = (x: any) => {
-    x.field === "delete"
-      ? deleteBooking(x.id)
-      : console.log("Cellen du klickat på är i fel fält");
+    if(x.field === "delete"){
+      deleteBooking(x.id)
+    }
   };
 
   const handleUpdateClick = (x: any) => {
-    x.field === "update"
-      ? changeStatus(x)
-      : console.log("Cellen du klickat på är i fel fält");
+    if(x.field === "update"){
+      changeStatus(x)
+
+    }
+    
   };
   return (
     <div className="currentbookings" style={{ height: 400, width: 655 }}>
@@ -107,10 +105,8 @@ const CurrentBookings = ({
         rows={currentBookings.map((x) => ({
           id: x.id,
           key: x.id,
-          datum: x.datum.slice(0, 10),
-          // .toDate().toLocaleDateString("sv-SE"),
-          tid: x.datum.slice(11),
-          // toDate().toLocaleTimeString("sv-SE"),
+          datum: x.datum.toDate().toLocaleDateString("sv-SE"),
+          tid: x.datum.toDate().toLocaleTimeString("sv-SE").slice(0, 5),
           nivå: x.niva,
           städare: x.stadare,
         }))}
@@ -118,7 +114,6 @@ const CurrentBookings = ({
         pageSize={5}
         rowsPerPageOptions={[5]}
         onCellClick={x}
-        // onCellClick={y}
       />
     </div>
   );

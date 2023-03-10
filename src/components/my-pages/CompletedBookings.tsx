@@ -5,12 +5,10 @@ import {
   GridFooter,
   GridFooterContainer,
   GridSelectionModel,
-  GridValueGetterParams,
 } from "@mui/x-data-grid";
 import Typography from "@mui/material/Typography";
 import { IBooking } from "./interfaces";
 import { Button } from "@mui/material";
-import Footer from "../Footer";
 import { useState } from "react";
 
 interface ICompletedBookings {
@@ -74,10 +72,8 @@ const CompletedBookings = ({
         rows={completedBookings.map((x) => ({
           id: x.id,
           key: x.id,
-          datum: x.datum.slice(0, 10),
-          // .toDate().toLocaleDateString("sv-SE"),
-          tid: x.datum.slice(11),
-          // .toDate().toLocaleTimeString("sv-SE"),
+          datum: x.datum.toDate().toLocaleDateString("sv-SE"),
+          tid: x.datum.toDate().toLocaleTimeString("sv-SE").slice(0,5),
           nivå: x.niva,
           städare: x.stadare,
         }))}

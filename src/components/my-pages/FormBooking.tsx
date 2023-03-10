@@ -1,23 +1,20 @@
-import { FormatAlignLeftSharp } from "@mui/icons-material";
 import { Button } from "@mui/material";
-import { time } from "console";
-import { Timestamp } from "firebase/firestore";
 import React from "react";
 import { useState } from "react";
-import { IBooking } from "./interfaces";
+import { IBooking, INewBooking } from "./interfaces";
 
 interface IFormData {
-  createBooking: (bokning: IBooking) => Promise<void>;
+  createBooking: (bokning: INewBooking) => Promise<void>;
   currentBookings: IBooking[];
 }
 
 const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
   // a.	Skapa ett state för att lagar all input, koppla dess innhåll till ett interface som definerar upp vilken typ som får finnas i ditt userObjekt.
-  const [formData, setformData] = useState<IBooking>({
+  const [formData, setformData] = useState<INewBooking>({
     id: "",
-    // datum: new Timestamp(0, 0),
     datum: "",
-    kund: `${currentBookings.map((x) => x.kund).at(-1)}`,
+    // kund: `${currentBookings.map((x) => x.kund).at(0)}`,
+    kund: "Jessica Clarkson",
     niva: "",
     stadare: "",
     status: false,
@@ -37,12 +34,14 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
     event?.preventDefault();
     const exists = currentBookings.findIndex(
       (x) =>
-        x.datum.slice(0, 10) === formData.datum.slice(0, 10) && //kollar datumet
-        x.datum.slice(11) === formData.datum.slice(11) && //kollar tid
+        x.datum.toDate().toLocaleDateString("sv-SE") ===
+          formData.datum.slice(0, 10) && //kollar datumet
+        x.datum.toDate().toLocaleTimeString("sv-SE").slice(0,5) ===
+          formData.datum.slice(11) && //kollar datumet
         x.niva === formData.niva &&
         x.stadare === formData.stadare
     );
-    console.log(exists);
+
     exists > -1
       ? alert("Kan inte boka! Bokningen finns redan")
       : createBooking(formData);
@@ -68,7 +67,7 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
           id="datum"
           name="datum"
           required
-          value={formData.datum.toString()}
+          value={formData.datum}
           onChange={handleChange}
         ></input>
       </div>

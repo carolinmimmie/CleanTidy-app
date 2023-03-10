@@ -6,18 +6,17 @@ import {
   doc,
   getDocs,
   query,
+  Timestamp,
   updateDoc,
   where,
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../../firebase.config";
 import MypagesHero from "./MypagesHero";
-import Hero from "./MypagesHero";
 import CompletedBookings from "./CompletedBookings";
 import CurrentBookings from "./CurrentBookings";
-import { IBooking } from "./interfaces";
-import FormBooking from "./FormBooking";
-import { GridSelectionModel } from "@mui/x-data-grid";
+import { IBooking, INewBooking } from "./interfaces";
+
 
 const MyPages = () => {
   const [currentBookings, setCurrentBookings] = useState<IBooking[]>([]);
@@ -48,6 +47,7 @@ const MyPages = () => {
 
   useEffect(() => {
     getBookings();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const changeStatus = async (x: any) => {
@@ -62,9 +62,10 @@ const MyPages = () => {
     getBookings();
   };
 
-  const createBooking = async (bokning: IBooking) => {
+  const createBooking = async (bokning: INewBooking) => {
     await addDoc(bookingsCollectionRef, {
-      datum: bokning.datum,
+      // datum: bokning.datum,
+      datum: Timestamp.fromDate(new Date(bokning.datum)),
       kund: bokning.kund,
       niva: bokning.niva,
       stadare: bokning.stadare,
