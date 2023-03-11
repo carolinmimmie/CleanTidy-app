@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import React from "react";
 import { useState } from "react";
+import AuthDetails from "../landing-page/AuthDetails";
 import { IBooking, INewBooking } from "./interfaces";
 
 interface IFormData {
@@ -36,7 +37,7 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
       (x) =>
         x.datum.toDate().toLocaleDateString("sv-SE") ===
           formData.datum.slice(0, 10) && //kollar datumet
-        x.datum.toDate().toLocaleTimeString("sv-SE").slice(0,5) ===
+        x.datum.toDate().toLocaleTimeString("sv-SE").slice(0, 5) ===
           formData.datum.slice(11) && //kollar datumet
         x.niva === formData.niva &&
         x.stadare === formData.stadare
@@ -51,13 +52,14 @@ const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      {
+      {/* {
         currentBookings.map((x) => (
           <h2 className="kund" key={x.id}>
             {`Välkommen ${x.kund}`}
           </h2>
         ))[0]
-      }
+      } */}
+      <AuthDetails></AuthDetails>
       <p className="underrubrik-form">Boka ny Städning:</p>
       <div className="box"></div>
       <div className="box">
