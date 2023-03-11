@@ -17,7 +17,6 @@ import CompletedBookings from "./CompletedBookings";
 import CurrentBookings from "./CurrentBookings";
 import { IBooking, INewBooking } from "./interfaces";
 
-
 const MyPages = () => {
   const [currentBookings, setCurrentBookings] = useState<IBooking[]>([]);
   const [completedBookings, setCompletedBookings] = useState<IBooking[]>([]);
