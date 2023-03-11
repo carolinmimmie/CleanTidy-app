@@ -23,16 +23,19 @@ const AuthDetails = () => {
 
     return () => {
       listen();
-    };
+    }; 
   }, []);
 
-  const userSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        console.log("Utloggning lyckad");
-      })
-      .catch((error) => console.log(error));
-  };
+  //   const userSignOut = () => {
+  //     signOut(auth)
+  //       .then(() => {
+  //         console.log("Utloggning lyckad");
+  //       })
+  //       .catch((error) => console.log(error));
+  //   };
+
+  //   const userFirstName = authUser.email.slice(0, 5);
+  //   const userLastName = authUser.email.slice(6, 12);
 
   return (
     <div>
@@ -42,7 +45,10 @@ const AuthDetails = () => {
             variant="h5"
             sx={{ mb: 4 }}
             // className="kund"
-          >{`Välkommen ${authUser.email}`}</Typography>
+          >
+            {`Välkommen ${authUser.email}`}
+            {/* {`Välkommen ${userFirstName}`} */}
+          </Typography>
           {/* <Button
             onClick={userSignOut}
             sx={{
