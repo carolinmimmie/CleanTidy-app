@@ -1,6 +1,6 @@
 import { Auth, onAuthStateChanged, signOut, User } from "@firebase/auth";
 import { Button, Typography } from "@mui/material";
-import { auto } from "@popperjs/core";
+import { auto, right } from "@popperjs/core";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { auth } from "../../firebase.config";
 
@@ -30,7 +30,15 @@ const AuthDetails = () => {
   //   };
 
   //   const userFirstName = authUser.email.slice(0, 5);
-  //   const userLastName = authUser.email.slice(6, 12);
+  const dot = authUser?.email?.indexOf(".");
+  const dot1 = `${authUser?.email?.slice(0, 1)}${authUser?.email}`.indexOf(".");
+  const dot2 = `${authUser?.email?.slice(0, 2)}${authUser?.email}`.indexOf(".");
+  const at = authUser?.email?.indexOf("@");
+  console.log(authUser)
+  const userFirstName = `${authUser?.email
+    ?.slice(0, 1)
+    .toUpperCase()}${authUser?.email?.slice(1, dot)}`;
+    const userLastName = `${authUser?.email?.slice(dot1, dot2).toUpperCase()}${authUser?.email?.slice(dot2, at)}`;
 
   return (
     <div>
@@ -41,8 +49,8 @@ const AuthDetails = () => {
             sx={{ mb: 4 }}
             // className="kund"
           >
-            {`Välkommen ${authUser.email}`}
-            {/* {`Välkommen ${userFirstName}`} */}
+            {/* {`Välkommen ${authUser.email}`} */}
+            {`Välkommen ${userFirstName} ${userLastName}`}
           </Typography>
           {/* <Button
             onClick={userSignOut}
