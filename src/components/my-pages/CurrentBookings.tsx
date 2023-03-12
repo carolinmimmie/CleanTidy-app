@@ -1,5 +1,10 @@
 import * as React from "react";
-import { DataGrid, GridColDef, GridEventListener } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridCellParams,
+  GridColDef,
+  GridEventListener,
+} from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button, Typography } from "@mui/material";
 import { IBooking } from "./interfaces";
@@ -7,7 +12,7 @@ import { IBooking } from "./interfaces";
 interface ICurrentbookings {
   currentBookings: IBooking[];
   deleteBooking: (id: string) => Promise<void>;
-  changeStatus: (id: string) => Promise<void>;
+  changeStatus: (booking: IBooking) => Promise<void>;
 }
 
 const columns: GridColDef[] = [
@@ -82,19 +87,17 @@ const CurrentBookings = ({
     handleDeleteClick(params);
     handleUpdateClick(params);
   };
-  
-  const handleDeleteClick = (x: any) => {
-    if(x.field === "delete"){
-      deleteBooking(x.id)
+
+  const handleDeleteClick = (x: GridCellParams) => {
+    if (x.field === "delete") {
+      deleteBooking(x.id.toString());
     }
   };
 
-  const handleUpdateClick = (x: any) => {
-    if(x.field === "update"){
-      changeStatus(x)
-
+  const handleUpdateClick = (x: any | IBooking) => {
+    if (x.field === "update") {
+      changeStatus(x);
     }
-    
   };
   return (
     <div className="currentbookings" style={{ height: 400, width: 655 }}>

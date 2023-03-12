@@ -17,7 +17,6 @@ import CompletedBookings from "./CompletedBookings";
 import CurrentBookings from "./CurrentBookings";
 import { IBooking, INewBooking } from "./interfaces";
 
-
 const MyPages = () => {
   const [currentBookings, setCurrentBookings] = useState<IBooking[]>([]);
   const [completedBookings, setCompletedBookings] = useState<IBooking[]>([]);
@@ -50,7 +49,7 @@ const MyPages = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const changeStatus = async (x: any) => {
+  const changeStatus = async (x: IBooking) => {
     await updateDoc(doc(bookingsCollectionRef, x.id), {
       status: !x.status,
     });
