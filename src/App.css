@@ -119,6 +119,14 @@ body {
 .kund {
   font-size: 2rem;
 }
+.error {
+  font-size: 1rem;
+  color: white;
+  margin-top: -1rem;
+  text-align: left;
+  padding-left: 0.1rem;
+}
+
 .underrubrik-form {
   font-size: 1.3rem;
   margin-top: -1rem;

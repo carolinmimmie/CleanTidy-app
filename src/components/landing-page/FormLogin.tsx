@@ -7,6 +7,8 @@ import { Auth, signInWithEmailAndPassword, User } from "firebase/auth";
 const FormLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorEmail, setErrorEmail] = useState(false);
+  const [errorPassword, setErrorPassword] = useState(false);
   let navigation = useNavigate();
   // const handleClick = () => {
   //   navigation("/Mina Sidor");
@@ -25,7 +27,9 @@ const FormLogin = () => {
       })
       .catch((error) => {
         console.log(error);
-        alert("Fel mail-address eller lösenord");
+        // alert("Fel mail-address eller lösenord");
+        setErrorEmail(true);
+        setErrorPassword(true);
       });
   };
   return (
@@ -40,6 +44,12 @@ const FormLogin = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         ></input>
+        {errorEmail && (
+          <p className="error">
+            {" "}
+            Vänligen ange en korrekt e-postadress (ex.namn@exempel.se).
+          </p>
+        )}
       </div>
       <div className="box">
         <input
@@ -50,6 +60,7 @@ const FormLogin = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
+        {errorPassword && <p className="error"> Lösenord krävs.</p>}
       </div>
       <div className="button-box">
         <Button
