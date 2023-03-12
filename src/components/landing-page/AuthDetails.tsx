@@ -1,4 +1,4 @@
-import { Auth, onAuthStateChanged, signOut } from "@firebase/auth";
+import { Auth, onAuthStateChanged, signOut, User } from "@firebase/auth";
 import { Button, Typography } from "@mui/material";
 import { auto } from "@popperjs/core";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
@@ -10,7 +10,7 @@ import { auth } from "../../firebase.config";
 // }
 
 const AuthDetails = () => {
-  const [authUser, setAuthUser] = useState<any>(null);
+  const [authUser, setAuthUser] = useState<User | null>(null);
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -23,7 +23,7 @@ const AuthDetails = () => {
 
     return () => {
       listen();
-    }; 
+    };
   }, []);
 
   //   const userSignOut = () => {
