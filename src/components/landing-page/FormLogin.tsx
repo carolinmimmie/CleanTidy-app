@@ -1,8 +1,8 @@
 import { Button, Switch } from "@mui/material";
-import React, { useState } from "react";
+import React, { MouseEventHandler, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase.config";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { Auth, signInWithEmailAndPassword, User } from "firebase/auth";
 
 const FormLogin = () => {
   const [email, setEmail] = useState("");

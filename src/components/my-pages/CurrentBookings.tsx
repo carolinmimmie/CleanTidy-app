@@ -12,7 +12,7 @@ import { IBooking } from "./interfaces";
 interface ICurrentbookings {
   currentBookings: IBooking[];
   deleteBooking: (id: string) => Promise<void>;
-  changeStatus: (booking: IBooking) => Promise<void>;
+  changeStatus: (id: string) => Promise<void>;
 }
 
 const columns: GridColDef[] = [
@@ -55,7 +55,6 @@ const columns: GridColDef[] = [
     renderCell: () => {
       return (
         <Button
-          // onClick={changeStatus}
           sx={{
             ml: 1,
             bgcolor: " rgba(000000, 0, 0, 0.8);",
@@ -70,20 +69,12 @@ const columns: GridColDef[] = [
   },
 ];
 
-// const printId = (x: any) => {
-//   x.field === "delete"
-//     ? console.log(`Cellen är i fältet: "${x.field}" och id't är: "${x.id}"`)
-//     : console.log("Cellen du klickat på är i fel fält");
-// };
-
 const CurrentBookings = ({
   currentBookings,
   deleteBooking,
   changeStatus,
 }: ICurrentbookings) => {
-  const x: GridEventListener<"cellClick"> = (
-    params // GridCellParams<any>
-  ) => {
+  const x: GridEventListener<"cellClick"> = (params) => {
     handleDeleteClick(params);
     handleUpdateClick(params);
   };
@@ -94,9 +85,9 @@ const CurrentBookings = ({
     }
   };
 
-  const handleUpdateClick = (x: any | IBooking) => {
+  const handleUpdateClick = (x: GridCellParams) => {
     if (x.field === "update") {
-      changeStatus(x);
+      changeStatus(x.id.toString());
     }
   };
   return (

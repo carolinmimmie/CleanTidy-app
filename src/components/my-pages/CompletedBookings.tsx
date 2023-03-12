@@ -34,9 +34,6 @@ const CompletedBookings = ({
 }: ICompletedBookings) => {
   const [rowIds, setRowIds] = useState<GridSelectionModel>([]);
   const handleDeleteChecked = () => {
-    // deleteBooking(rowIds.toString());
-    console.log(rowIds.toString());
-
     rowIds.forEach((x) => deleteBooking(x.toString()));
     rowIds.forEach((x) => console.log(x.toString()));
   };
@@ -73,7 +70,7 @@ const CompletedBookings = ({
           id: x.id,
           key: x.id,
           datum: x.datum.toDate().toLocaleDateString("sv-SE"),
-          tid: x.datum.toDate().toLocaleTimeString("sv-SE").slice(0,5),
+          tid: x.datum.toDate().toLocaleTimeString("sv-SE").slice(0, 5),
           nivå: x.niva,
           städare: x.stadare,
         }))}

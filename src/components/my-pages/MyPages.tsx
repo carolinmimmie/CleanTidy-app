@@ -49,9 +49,16 @@ const MyPages = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const changeStatus = async (x: IBooking) => {
-    await updateDoc(doc(bookingsCollectionRef, x.id), {
-      status: !x.status,
+  // const changeStatus = async (x: IBooking) => {
+  //   await updateDoc(doc(bookingsCollectionRef, x.id), {
+  //     status: !x.status,
+  //   });
+  //   getBookings();
+  // };
+
+  const changeStatus = async (id: string) => {
+    await updateDoc(doc(bookingsCollectionRef, id), {
+      status: true,
     });
     getBookings();
   };

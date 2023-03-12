@@ -4,11 +4,6 @@ import { auto } from "@popperjs/core";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { auth } from "../../firebase.config";
 
-// interface IAuthContext {
-//   currentUser: string;
-//   setCurrentUser: Dispatch<SetStateAction<string>>;
-// }
-
 const AuthDetails = () => {
   const [authUser, setAuthUser] = useState<User | null>(null);
 
