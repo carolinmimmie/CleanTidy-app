@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import MyPages from "./components/my-pages/MyPages";
 import Form from "./components/my-pages/FormBooking";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MyPagesContext from "./components/my-pages/MyPagesContext";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Route path="Om Oss" element={<Landingpage />}></Route>
         <Route path="StädaFint" element={<Landingpage />}></Route>
         <Route path="Våra Tjänster" element={<Landingpage />}></Route>
-        <Route path="Mina Sidor" element={<MyPages />}></Route>
+        <Route path="Mina Sidor" element={<MyPagesContext />}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import FormBooking from "./FormBooking";
 import { IBooking, INewBooking } from "./interfaces";
+import { MyPagesC } from "./MyPagesContext";
 
 interface qwp {
-  createBooking: (bokning: INewBooking) => Promise<void>;
-  currentBookings: IBooking[];
+  // createBooking: (bokning: INewBooking) => Promise<void>;
+  // currentBookings: IBooking[];
 }
 
-const MypagesHero = ({ createBooking,currentBookings }: qwp) => {
+const MypagesHero = ({ }: qwp) => {
+  const {
+    currentBookings,
+    setCurrentBookings,
+    completedBookings,
+    setCompletedBookings,
+  } = useContext(MyPagesC);
   return (
     <div className="hero">
-      <FormBooking createBooking={createBooking} currentBookings={currentBookings}></FormBooking>
+      <FormBooking ></FormBooking>
     </div>
   );
 };

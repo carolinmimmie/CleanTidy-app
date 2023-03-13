@@ -10,44 +10,52 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { db } from "../../firebase.config";
 import MypagesHero from "./MypagesHero";
 import CompletedBookings from "./CompletedBookings";
 import CurrentBookings from "./CurrentBookings";
 import { IBooking, INewBooking } from "./interfaces";
+import { MyPagesC } from "./MyPagesContext";
+import { cStatus } from "../../Api";
+
 
 const MyPages = () => {
-  const [currentBookings, setCurrentBookings] = useState<IBooking[]>([]);
-  const [completedBookings, setCompletedBookings] = useState<IBooking[]>([]);
-  const bookingsCollectionRef = collection(db, "bookings");
-  const qCurrent = query(bookingsCollectionRef, where("status", "==", false));
-  const qCompleted = query(bookingsCollectionRef, where("status", "==", true));
 
-  const getBookings = async () => {
-    const dataCurrent = await getDocs(qCurrent);
 
-    setCurrentBookings(
-      dataCurrent.docs.map((doc) => ({
-        ...(doc.data() as IBooking),
-        id: doc.id,
-      }))
-    );
+  // const { currentBookings, setCurrentBookings,completedBookings,setCompletedBookings } =
+  // useContext(MyPagesC);
 
-    const dataCompleted = await getDocs(qCompleted);
+  // const [currentBookings, setCurrentBookings] = useState<IBooking[]>([]);
+  // const [completedBookings, setCompletedBookings] = useState<IBooking[]>([]);
+  // const bookingsCollectionRef = collection(db, "bookings");
+  // const qCurrent = query(bookingsCollectionRef, where("status", "==", false));
+  // const qCompleted = query(bookingsCollectionRef, where("status", "==", true));
 
-    setCompletedBookings(
-      dataCompleted.docs.map((doc) => ({
-        ...(doc.data() as IBooking),
-        id: doc.id,
-      }))
-    );
-  };
+  // const getBookings = async () => {
+  //   const dataCurrent = await getDocs(qCurrent);
 
-  useEffect(() => {
-    getBookings();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  //   setCurrentBookings(
+  //     dataCurrent.docs.map((doc) => ({
+  //       ...(doc.data() as IBooking),
+  //       id: doc.id,
+  //     }))
+  //   );
+
+  //   const dataCompleted = await getDocs(qCompleted);
+
+  //   setCompletedBookings(
+  //     dataCompleted.docs.map((doc) => ({
+  //       ...(doc.data() as IBooking),
+  //       id: doc.id,
+  //     }))
+  //   );
+  // };
+
+  // useEffect(() => {
+  //   getBookings();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   // const changeStatus = async (x: IBooking) => {
   //   await updateDoc(doc(bookingsCollectionRef, x.id), {
@@ -56,46 +64,46 @@ const MyPages = () => {
   //   getBookings();
   // };
 
-  const changeStatus = async (id: string) => {
-    await updateDoc(doc(bookingsCollectionRef, id), {
-      status: true,
-    });
-    getBookings();
-  };
+  // const changeStatus = async (id: string) => {
+  //   await updateDoc(doc(bookingsCollectionRef, id), {
+  //     status: true,
+  //   });
+  //   getBookings();
+  // };
 
-  const deleteBooking = async (id: string) => {
-    await deleteDoc(doc(bookingsCollectionRef, id));
-    getBookings();
-  };
+  // const deleteBooking = async (id: string) => {
+  //   await deleteDoc(doc(bookingsCollectionRef, id));
+  //   getBookings();
+  // };
 
-  const createBooking = async (bokning: INewBooking) => {
-    await addDoc(bookingsCollectionRef, {
-      // datum: bokning.datum,
-      datum: Timestamp.fromDate(new Date(bokning.datum)),
-      kund: bokning.kund,
-      niva: bokning.niva,
-      stadare: bokning.stadare,
-      status: bokning.status,
-    });
-    getBookings();
-  };
+  // const createBooking = async (bokning: INewBooking) => {
+  //   await addDoc(bookingsCollectionRef, {
+  //     // datum: bokning.datum,
+  //     datum: Timestamp.fromDate(new Date(bokning.datum)),
+  //     kund: bokning.kund,
+  //     niva: bokning.niva,
+  //     stadare: bokning.stadare,
+  //     status: bokning.status,
+  //   });
+  //   getBookings();
+  // };
 
   return (
     <>
       <MypagesHero
-        createBooking={createBooking}
-        currentBookings={currentBookings}
+        // createBooking={createBooking}
+        // currentBookings={currentBookings}
       ></MypagesHero>
 
       <Box className="my-pages">
         <CurrentBookings
-          currentBookings={currentBookings}
-          deleteBooking={deleteBooking}
-          changeStatus={changeStatus}
+          // currentBookings={currentBookings}
+          // deleteBooking={deleteBooking}
+          // changeStatus={changeStatus}
         ></CurrentBookings>
         <CompletedBookings
-          completedBookings={completedBookings}
-          deleteBooking={deleteBooking}
+          // completedBookings={completedBookings}
+          // deleteBooking={deleteBooking}
         ></CompletedBookings>
       </Box>
     </>

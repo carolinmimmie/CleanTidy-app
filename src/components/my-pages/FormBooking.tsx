@@ -1,15 +1,31 @@
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
+import { cBooking, getCurrentBookings } from "../../Api";
 import AuthDetails from "../landing-page/AuthDetails";
 import { IBooking, INewBooking } from "./interfaces";
+import { MyPagesC } from "./MyPagesContext";
 
 interface IFormData {
-  createBooking: (bokning: INewBooking) => Promise<void>;
-  currentBookings: IBooking[];
+  // createBooking: (bokning: INewBooking) => Promise<void>;
+  // currentBookings: IBooking[];
 }
 
-const FormBooking = ({ createBooking, currentBookings }: IFormData) => {
+const FormBooking = ({}: IFormData) => {
+  const createBooking = async (bokning: INewBooking) => {
+    // const fetchBooks = async () => {
+      await cBooking(bokning);
+    // };
+    // fetchBooks();
+    setCurrentBookings(await getCurrentBookings());
+  };
+  const {
+    currentBookings,
+    setCurrentBookings,
+    completedBookings,
+    setCompletedBookings,
+  } = useContext(MyPagesC);
+
   // a.	Skapa ett state för att lagar all input, koppla dess innhåll till ett interface som definerar upp vilken typ som får finnas i ditt userObjekt.
   const [formData, setformData] = useState<INewBooking>({
     id: "",

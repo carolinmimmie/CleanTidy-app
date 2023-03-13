@@ -8,11 +8,18 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button, Typography } from "@mui/material";
 import { IBooking } from "./interfaces";
+import { MyPagesC } from "./MyPagesContext";
+import {
+  cStatus,
+  dBooking,
+  getCompletedBookings,
+  getCurrentBookings,
+} from "../../Api";
 
 interface ICurrentbookings {
-  currentBookings: IBooking[];
-  deleteBooking: (id: string) => Promise<void>;
-  changeStatus: (id: string) => Promise<void>;
+  // currentBookings: IBooking[];
+  // deleteBooking: (id: string) => Promise<void>;
+  // changeStatus: (id: string) => Promise<void>;
 }
 
 const columns: GridColDef[] = [
@@ -69,11 +76,30 @@ const columns: GridColDef[] = [
   },
 ];
 
-const CurrentBookings = ({
-  currentBookings,
-  deleteBooking,
-  changeStatus,
-}: ICurrentbookings) => {
+const CurrentBookings = ({}: // deleteBooking,
+// changeStatus,
+ICurrentbookings) => {
+  const changeStatus = async (id: string) => {
+    // const fetchBooks = async () => {
+    await cStatus(id);
+    // };
+    // fetchBooks();
+    const newBookings = await getCompletedBookings();
+    setCompletedBookings(newBookings);
+  };
+  const deleteBooking = async (id: string) => {
+    // const fetchBooks = async () => {
+    await dBooking(id);
+    // };
+    // fetchBooks();
+    setCurrentBookings(await getCurrentBookings());
+  };
+  const {
+    currentBookings,
+    setCurrentBookings,
+    completedBookings,
+    setCompletedBookings,
+  } = React.useContext(MyPagesC);
   const x: GridEventListener<"cellClick"> = (params) => {
     handleDeleteClick(params);
     handleUpdateClick(params);
