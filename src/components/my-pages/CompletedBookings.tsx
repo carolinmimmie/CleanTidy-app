@@ -76,28 +76,30 @@ ICompletedBookings) => {
   };
 
   return (
-    <div className=" completedbookings" style={{ height: 400, width: 655 }}>
+    <div>
       <Typography component="div" variant="h6">
         Utförda Bokningar
       </Typography>
-      <DataGrid
-        rows={completedBookings.map((x) => ({
-          id: x.id,
-          key: x.id,
-          datum: x.datum.toDate().toLocaleDateString("sv-SE"),
-          tid: x.datum.toDate().toLocaleTimeString("sv-SE").slice(0, 5),
-          nivå: x.niva,
-          städare: x.stadare,
-        }))}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
-        components={{ Footer: CustomFooter }}
-        onSelectionModelChange={(id) => {
-          setRowIds(id);
-        }}
-      />
+      <div className="completed-bookings">
+        <DataGrid
+          rows={completedBookings.map((x) => ({
+            id: x.id,
+            key: x.id,
+            datum: x.datum.toDate().toLocaleDateString("sv-SE"),
+            tid: x.datum.toDate().toLocaleTimeString("sv-SE").slice(0, 5),
+            nivå: x.niva,
+            städare: x.stadare,
+          }))}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          checkboxSelection
+          components={{ Footer: CustomFooter }}
+          onSelectionModelChange={(id) => {
+            setRowIds(id);
+          }}
+        />
+      </div>
     </div>
   );
 };

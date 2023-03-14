@@ -113,6 +113,7 @@ body {
   align-items: center;
   padding: 3rem;
   margin-bottom: 3rem;
+  gap: 1rem;
 }
 
 /* Form*/
@@ -201,7 +202,25 @@ input[type="radio"] {
   color: white;
 }
 
+.completed-bookings {
+  height: 400px;
+  min-width: 655px;
+}
+
+.current-bookings {
+  height: 400px;
+  min-width: 655px;
+}
+
 /* Media Queries */
+
+@media (max-width: 1460px) {
+  .my-pages {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
 @media (max-width: 1024px) {
   .text {
     width: 400px;
@@ -224,8 +243,5 @@ input[type="radio"] {
   .my-pages {
     display: flex;
     flex-direction: column;
-  }
-  .completedbookings {
-    margin-top: 4rem;
   }
 }

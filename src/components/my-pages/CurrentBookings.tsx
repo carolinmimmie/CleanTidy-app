@@ -117,24 +117,26 @@ ICurrentbookings) => {
     }
   };
   return (
-    <div className="currentbookings" style={{ height: 400, width: 655 }}>
+    <div>
       <Typography component="div" variant="h6">
         Kommande Bokningar
       </Typography>
-      <DataGrid
-        rows={currentBookings.map((x) => ({
-          id: x.id,
-          key: x.id,
-          datum: x.datum.toDate().toLocaleDateString("sv-SE"),
-          tid: x.datum.toDate().toLocaleTimeString("sv-SE").slice(0, 5),
-          nivå: x.niva,
-          städare: x.stadare,
-        }))}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        onCellClick={x}
-      />
+      <div className="current-bookings">
+        <DataGrid
+          rows={currentBookings.map((x) => ({
+            id: x.id,
+            key: x.id,
+            datum: x.datum.toDate().toLocaleDateString("sv-SE"),
+            tid: x.datum.toDate().toLocaleTimeString("sv-SE").slice(0, 5),
+            nivå: x.niva,
+            städare: x.stadare,
+          }))}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          onCellClick={x}
+        />
+      </div>
     </div>
   );
 };
