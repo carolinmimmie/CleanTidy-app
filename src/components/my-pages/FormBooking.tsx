@@ -4,7 +4,7 @@ import { useState } from "react";
 import { cBooking, getCurrentBookings } from "../../Api";
 import AuthDetails from "../landing-page/AuthDetails";
 import { IBooking, INewBooking } from "./interfaces";
-import { MyPagesC } from "./MyPagesContext";
+import { MyPagesC } from "../../context/MyPagesContext";
 
 const FormBooking = () => {
   const createBooking = async (bokning: INewBooking) => {

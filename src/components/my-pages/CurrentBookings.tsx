@@ -7,7 +7,7 @@ import {
 } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button, Typography } from "@mui/material";
-import { MyPagesC } from "./MyPagesContext";
+import { MyPagesC } from "../../context/MyPagesContext";
 import {
   cStatus,
   dBooking,

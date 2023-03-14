@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import MyPages from "./components/my-pages/MyPages";
 import Form from "./components/my-pages/FormBooking";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MyPagesContext from "./components/my-pages/MyPagesContext";
+import MyPagesContext from "./context/MyPagesContext";
 
 function App() {
   return (

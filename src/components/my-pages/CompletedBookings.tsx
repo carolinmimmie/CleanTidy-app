@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import { useContext, useState } from "react";
 import { dBooking, getCompletedBookings } from "../../Api";
-import { MyPagesC } from "./MyPagesContext";
+import { MyPagesC } from "../../context/MyPagesContext";
 
 const columns: GridColDef[] = [
   { field: "datum", headerName: "Datum", width: 120 },
@@ -25,7 +25,6 @@ const columns: GridColDef[] = [
 ];
 
 const CompletedBookings = () => {
-  
   const deleteBooking = async (id: string) => {
     await dBooking(id);
     setCompletedBookings(await getCompletedBookings());

@@ -1,7 +1,7 @@
 import React, { createContext, Dispatch, useEffect, useState } from "react";
-import { getCompletedBookings, getCurrentBookings } from "../../Api";
-import { IBooking } from "./interfaces";
-import MyPages from "./MyPages";
+import { getCompletedBookings, getCurrentBookings } from "../Api";
+import { IBooking } from "../components/my-pages/interfaces";
+import MyPages from "../components/my-pages/MyPages";
 
 //Interface context
 interface IMyPagesContext {
