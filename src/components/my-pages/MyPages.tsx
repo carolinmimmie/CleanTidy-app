@@ -1,110 +1,16 @@
+import React from "react";
 import { Box } from "@mui/system";
-import {
-  addDoc,
-  collection,
-  deleteDoc,
-  doc,
-  getDocs,
-  query,
-  Timestamp,
-  updateDoc,
-  where,
-} from "firebase/firestore";
-import React, { useContext, useEffect, useState } from "react";
-import { db } from "../../firebase.config";
 import MypagesHero from "./MypagesHero";
 import CompletedBookings from "./CompletedBookings";
 import CurrentBookings from "./CurrentBookings";
-import { IBooking, INewBooking } from "./interfaces";
-import { MyPagesC } from "./MyPagesContext";
-import { cStatus } from "../../Api";
-
 
 const MyPages = () => {
-
-
-  // const { currentBookings, setCurrentBookings,completedBookings,setCompletedBookings } =
-  // useContext(MyPagesC);
-
-  // const [currentBookings, setCurrentBookings] = useState<IBooking[]>([]);
-  // const [completedBookings, setCompletedBookings] = useState<IBooking[]>([]);
-  // const bookingsCollectionRef = collection(db, "bookings");
-  // const qCurrent = query(bookingsCollectionRef, where("status", "==", false));
-  // const qCompleted = query(bookingsCollectionRef, where("status", "==", true));
-
-  // const getBookings = async () => {
-  //   const dataCurrent = await getDocs(qCurrent);
-
-  //   setCurrentBookings(
-  //     dataCurrent.docs.map((doc) => ({
-  //       ...(doc.data() as IBooking),
-  //       id: doc.id,
-  //     }))
-  //   );
-
-  //   const dataCompleted = await getDocs(qCompleted);
-
-  //   setCompletedBookings(
-  //     dataCompleted.docs.map((doc) => ({
-  //       ...(doc.data() as IBooking),
-  //       id: doc.id,
-  //     }))
-  //   );
-  // };
-
-  // useEffect(() => {
-  //   getBookings();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
-  // const changeStatus = async (x: IBooking) => {
-  //   await updateDoc(doc(bookingsCollectionRef, x.id), {
-  //     status: !x.status,
-  //   });
-  //   getBookings();
-  // };
-
-  // const changeStatus = async (id: string) => {
-  //   await updateDoc(doc(bookingsCollectionRef, id), {
-  //     status: true,
-  //   });
-  //   getBookings();
-  // };
-
-  // const deleteBooking = async (id: string) => {
-  //   await deleteDoc(doc(bookingsCollectionRef, id));
-  //   getBookings();
-  // };
-
-  // const createBooking = async (bokning: INewBooking) => {
-  //   await addDoc(bookingsCollectionRef, {
-  //     // datum: bokning.datum,
-  //     datum: Timestamp.fromDate(new Date(bokning.datum)),
-  //     kund: bokning.kund,
-  //     niva: bokning.niva,
-  //     stadare: bokning.stadare,
-  //     status: bokning.status,
-  //   });
-  //   getBookings();
-  // };
-
   return (
     <>
-      <MypagesHero
-        // createBooking={createBooking}
-        // currentBookings={currentBookings}
-      ></MypagesHero>
-
+      <MypagesHero></MypagesHero>
       <Box className="my-pages">
-        <CurrentBookings
-          // currentBookings={currentBookings}
-          // deleteBooking={deleteBooking}
-          // changeStatus={changeStatus}
-        ></CurrentBookings>
-        <CompletedBookings
-          // completedBookings={completedBookings}
-          // deleteBooking={deleteBooking}
-        ></CompletedBookings>
+        <CurrentBookings></CurrentBookings>
+        <CompletedBookings></CompletedBookings>
       </Box>
     </>
   );

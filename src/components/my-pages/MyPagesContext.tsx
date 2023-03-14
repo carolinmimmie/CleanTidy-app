@@ -1,10 +1,8 @@
 import React, { createContext, Dispatch, useEffect, useState } from "react";
 import { getCompletedBookings, getCurrentBookings } from "../../Api";
-import CurrentBookings from "./CurrentBookings";
 import { IBooking } from "./interfaces";
 import MyPages from "./MyPages";
 
-//Interface för mitt context
 interface IMyPagesContext {
   currentBookings: IBooking[];
   setCurrentBookings: Dispatch<React.SetStateAction<IBooking[]>>;
@@ -12,7 +10,6 @@ interface IMyPagesContext {
   setCompletedBookings: Dispatch<React.SetStateAction<IBooking[]>>;
 }
 
-//Skapa context
 export const MyPagesC = createContext<IMyPagesContext>({
   currentBookings: [],
   setCurrentBookings: () => {},
@@ -35,12 +32,8 @@ const MyPagesContext = () => {
     };
     fetchBookings();
 
-    //  getCurrentBookings();
-    //  getCompletedBookings();
-
-    //and an array of dependencies that make the effect fire.
+    
   }, []);
-  // skapar en komponent vars avsikt enbart är att visa upp parents och wrappa den i ett context
   return (
     <>
       <MyPagesC.Provider

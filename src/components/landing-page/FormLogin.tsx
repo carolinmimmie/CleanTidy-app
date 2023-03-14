@@ -1,8 +1,8 @@
-import { Button, Switch } from "@mui/material";
-import React, { MouseEventHandler, useState } from "react";
+import { Button } from "@mui/material";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase.config";
-import { Auth, signInWithEmailAndPassword, User } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const FormLogin = () => {
   const [email, setEmail] = useState("");
@@ -10,13 +10,6 @@ const FormLogin = () => {
   const [errorEmail, setErrorEmail] = useState(false);
   const [errorPassword, setErrorPassword] = useState(false);
   let navigation = useNavigate();
-  // const handleClick = () => {
-  //   navigation("/Mina Sidor");
-
-  //   //   const login = (email: string, password: string & number) => {
-  //   //     return auth.signInWithEmailAndPassword(email, password);
-  //   //   };
-  // };
 
   const login = (e: any) => {
     e.preventDefault();
@@ -27,7 +20,6 @@ const FormLogin = () => {
       })
       .catch((error) => {
         console.log(error);
-        // alert("Fel mail-address eller lösenord");
         setErrorEmail(true);
         setErrorPassword(true);
       });
@@ -40,7 +32,6 @@ const FormLogin = () => {
           type="text"
           id="epost"
           name="epost"
-          // value="E-postadress"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         ></input>
@@ -56,7 +47,6 @@ const FormLogin = () => {
           type="password"
           id="password"
           name="password"
-          // value="Lösenord"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
@@ -64,7 +54,6 @@ const FormLogin = () => {
       </div>
       <div className="button-box">
         <Button
-          // onClick={handleClick}
           onClick={login}
           type="submit"
           sx={{
