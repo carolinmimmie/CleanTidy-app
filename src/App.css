@@ -211,6 +211,11 @@ input[type="radio"] {
   height: 400px;
   min-width: 655px;
 }
+.button-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
 /* Media Queries */
 
