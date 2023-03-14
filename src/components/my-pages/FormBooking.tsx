@@ -6,27 +6,14 @@ import AuthDetails from "../landing-page/AuthDetails";
 import { IBooking, INewBooking } from "./interfaces";
 import { MyPagesC } from "./MyPagesContext";
 
-interface IFormData {
-  // createBooking: (bokning: INewBooking) => Promise<void>;
-  // currentBookings: IBooking[];
-}
-
-const FormBooking = ({}: IFormData) => {
+const FormBooking = () => {
   const createBooking = async (bokning: INewBooking) => {
-    // const fetchBooks = async () => {
-      await cBooking(bokning);
-    // };
-    // fetchBooks();
+    await cBooking(bokning);
+
     setCurrentBookings(await getCurrentBookings());
   };
-  const {
-    currentBookings,
-    setCurrentBookings,
-    completedBookings,
-    setCompletedBookings,
-  } = useContext(MyPagesC);
+  const { currentBookings, setCurrentBookings } = useContext(MyPagesC);
 
-  // a.	Skapa ett state för att lagar all input, koppla dess innhåll till ett interface som definerar upp vilken typ som får finnas i ditt userObjekt.
   const [formData, setformData] = useState<INewBooking>({
     id: "",
     datum: "",
@@ -36,9 +23,6 @@ const FormBooking = ({}: IFormData) => {
     stadare: "",
     status: false,
   });
-
-  //event utav typen React.ChangeEvent<HTMLInputElement>
-  //name är de olika egenskaperna
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -62,19 +46,10 @@ const FormBooking = ({}: IFormData) => {
     exists > -1
       ? alert("Kan inte boka! Bokningen finns redan")
       : createBooking(formData);
-
-    // e.	I den kan du consol.loga formData för att se att hela formuläret är kopplat till ett objekt som skulle kunna skickas till backend.
   };
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      {/* {
-        currentBookings.map((x) => (
-          <h2 className="kund" key={x.id}>
-            {`Välkommen ${x.kund}`}
-          </h2>
-        ))[0]
-      } */}
       <AuthDetails></AuthDetails>
       <p className="underrubrik-form">Boka ny Städning:</p>
       <div className="box"></div>

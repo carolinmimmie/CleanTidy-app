@@ -7,16 +7,10 @@ import {
   GridSelectionModel,
 } from "@mui/x-data-grid";
 import Typography from "@mui/material/Typography";
-import { IBooking } from "./interfaces";
 import { Button } from "@mui/material";
 import { useContext, useState } from "react";
 import { dBooking, getCompletedBookings } from "../../Api";
 import { MyPagesC } from "./MyPagesContext";
-
-interface ICompletedBookings {
-  // completedBookings: IBooking[];
-  // deleteBooking: (id: string) => Promise<void>;
-}
 
 const columns: GridColDef[] = [
   { field: "datum", headerName: "Datum", width: 120 },
@@ -30,23 +24,14 @@ const columns: GridColDef[] = [
   },
 ];
 
-const CompletedBookings = ({}: // completedBookings,
-// deleteBooking,
-ICompletedBookings) => {
+const CompletedBookings = () => {
+  
   const deleteBooking = async (id: string) => {
-    // const fetchBooks = async () => {
     await dBooking(id);
-    // };
-    // fetchBooks();
     setCompletedBookings(await getCompletedBookings());
   };
 
-  const {
-    // currentBookings,
-    // setCurrentBookings,
-    completedBookings,
-    setCompletedBookings,
-  } = useContext(MyPagesC);
+  const { completedBookings, setCompletedBookings } = useContext(MyPagesC);
   const [rowIds, setRowIds] = useState<GridSelectionModel>([]);
   const handleDeleteChecked = () => {
     rowIds.forEach((x) => deleteBooking(x.toString()));
