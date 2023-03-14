@@ -5,7 +5,6 @@ import { cBooking, getCurrentBookings } from "../../Api";
 import { INewBooking } from "./interfaces";
 import { MyPagesC } from "../../context/MyPagesContext";
 import { UserContext } from "../../context/UserNameContext";
-import { User } from "@firebase/auth";
 
 const FormBooking = () => {
   const { user } = useContext(UserContext);
@@ -13,46 +12,6 @@ const FormBooking = () => {
     await cBooking(bokning);
 
     setCurrentBookings(await getCurrentBookings());
-  };
-
-  // const { user } = useContext(UserContext);
-  const { currentBookings, setCurrentBookings } = useContext(MyPagesC);
-
-  const [formData, setformData] = useState<INewBooking>({
-    id: "",
-    datum: "",
-    // kund: `${currentBookings.map((x) => x.kund).at(0)}`,
-    kund: user,
-    niva: "",
-    stadare: "",
-    status: false,
-  });
-
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    // c.	Kalla på setFormData och updatera värderna i formData.
-    setformData({ ...formData, [event.target.name]: event?.target.value });
-  };
-  // d.	Skapa en handleSubmit som du refererar till på din <form> onSubmit.
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event?.preventDefault();
-    const exists = currentBookings.findIndex(
-      (x) =>
-        x.datum.toDate().toLocaleDateString("sv-SE") ===
-          formData.datum.slice(0, 10) && //kollar datumet
-        x.datum.toDate().toLocaleTimeString("sv-SE").slice(0, 5) ===
-          formData.datum.slice(11) && //kollar datumet
-        x.niva === formData.niva &&
-        x.stadare === formData.stadare
-    );
-
-    exists > -1
-      ? alert("Kan inte boka! Bokningen finns redan")
-      : createBooking(formData);
-    console.log("Här är console loggen för formdata");
-    console.log(formData);
-    // console.log(user);
   };
 
   const dot = user?.email?.indexOf(".");
@@ -66,9 +25,45 @@ const FormBooking = () => {
     ?.slice(dot1, dot2)
     .toUpperCase()}${user?.email?.slice(dot2, at)}`;
 
+  const { currentBookings, setCurrentBookings } = useContext(MyPagesC);
+
+  const [formData, setformData] = useState<INewBooking>({
+    id: "",
+    datum: "",
+    kund: userFirstName + " " + userLastName,
+    niva: "",
+    stadare: "",
+    status: false,
+  });
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    setformData({ ...formData, [event.target.name]: event?.target.value });
+  };
+  
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event?.preventDefault();
+    const exists = currentBookings.findIndex(
+      (x) =>
+        x.datum.toDate().toLocaleDateString("sv-SE") ===
+          formData.datum.slice(0, 10) && 
+        x.datum.toDate().toLocaleTimeString("sv-SE").slice(0, 5) ===
+          formData.datum.slice(11) && 
+        x.niva === formData.niva &&
+        x.stadare === formData.stadare
+    );
+
+    exists > -1
+      ? alert("Kan inte boka! Bokningen finns redan")
+      : createBooking(formData);
+    console.log("Här är console loggen för formdata");
+    console.log(formData);
+  };
+
   useEffect(() => {
     return () => {
-      console.log(user);
+      console.log(`Välkommen ${userFirstName} ${userLastName}`);
     };
   }, []);
 

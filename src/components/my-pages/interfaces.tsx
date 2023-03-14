@@ -1,10 +1,9 @@
 import { Timestamp } from "firebase/firestore";
-import { User } from "@firebase/auth";
 
 interface IBooking {
   id: string;
   datum: Timestamp;
-  kund: User;
+  kund: string;
   niva: string;
   stadare: string;
   status: boolean;
@@ -13,7 +12,7 @@ interface IBooking {
 interface INewBooking {
   id: string;
   datum: string;
-  kund: User | null;
+  kund: string;
   niva: string;
   stadare: string;
   status: boolean;

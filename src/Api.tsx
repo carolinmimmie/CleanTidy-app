@@ -51,7 +51,6 @@ export const dBooking = async (id: string) => {
 
 export const cBooking = async (bokning: INewBooking) => {
   await addDoc(bookingsCollectionRef, {
-    // datum: bokning.datum,
     datum: Timestamp.fromDate(new Date(bokning.datum)),
     kund: bokning.kund,
     niva: bokning.niva,

@@ -10,19 +10,12 @@ const FormLogin = () => {
   const [errorEmail, setErrorEmail] = useState(false);
   const [errorPassword, setErrorPassword] = useState(false);
   let navigation = useNavigate();
-  // const handleClick = () => {
-  //   navigation("/Mina Sidor");
-
-  //   //   const login = (email: string, password: string & number) => {
-  //   //     return auth.signInWithEmailAndPassword(email, password);
-  //   //   };
-  // };
 
   const login = (e: any) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // console.log(userCredential);
+        console.log(userCredential);
         navigation("/Mina Sidor");
       })
       .catch((error) => {

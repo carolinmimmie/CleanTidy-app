@@ -1,22 +1,19 @@
 import { onAuthStateChanged, User } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
-import FormBooking from "../components/my-pages/FormBooking";
 import { auth } from "../firebase.config";
 
-// import "./App.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/header/Header";
 import Landingpage from "../components/landing-page/Landingpage";
 import MyPagesContext from "./MyPagesContext";
-import Footer from "../components/Footer";
+import Footer from "../components/footer/Footer";
 
 interface IUserContext {
   user: User | null;
   setUser: (value: React.SetStateAction<User | null>) => void;
 }
 
-//Skapa context
 export const UserContext = createContext<IUserContext>({
   user: null,
   setUser: () => {},
@@ -39,7 +36,6 @@ const UserNameContext = () => {
   }, []);
 
   return (
-    //WRAPPA MITT CONTEXT
     <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
         <Header></Header>

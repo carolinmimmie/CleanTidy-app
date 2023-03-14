@@ -3,7 +3,7 @@ import { getCompletedBookings, getCurrentBookings } from "../Api";
 import { IBooking } from "../components/my-pages/interfaces";
 import MyPages from "../components/my-pages/MyPages";
 
-//Interface context
+
 interface IMyPagesContext {
   currentBookings: IBooking[];
   setCurrentBookings: Dispatch<React.SetStateAction<IBooking[]>>;
@@ -11,7 +11,6 @@ interface IMyPagesContext {
   setCompletedBookings: Dispatch<React.SetStateAction<IBooking[]>>;
 }
 
-//Skapa context
 export const MyPagesC = createContext<IMyPagesContext>({
   currentBookings: [],
   setCurrentBookings: () => {},
@@ -31,10 +30,8 @@ const MyPagesContext = () => {
       setCompletedBookings(completedBookings);
     };
     fetchBookings();
-
-    //and an array of dependencies that make the effect fire.
   }, []);
-  // wrappa context
+
   return (
     <>
       <MyPagesC.Provider
