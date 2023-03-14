@@ -1,24 +1,28 @@
-import { Button } from "@mui/material";
-import React, { useContext } from "react";
+import { Button, Typography } from "@mui/material";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { cBooking, getCurrentBookings } from "../../Api";
-import AuthDetails from "../landing-page/AuthDetails";
-import { IBooking, INewBooking } from "./interfaces";
+import { INewBooking } from "./interfaces";
 import { MyPagesC } from "../../context/MyPagesContext";
+import { UserContext } from "../../context/UserNameContext";
+import { User } from "@firebase/auth";
 
 const FormBooking = () => {
+  const { user } = useContext(UserContext);
   const createBooking = async (bokning: INewBooking) => {
     await cBooking(bokning);
 
     setCurrentBookings(await getCurrentBookings());
   };
+
+  // const { user } = useContext(UserContext);
   const { currentBookings, setCurrentBookings } = useContext(MyPagesC);
 
   const [formData, setformData] = useState<INewBooking>({
     id: "",
     datum: "",
     // kund: `${currentBookings.map((x) => x.kund).at(0)}`,
-    kund: "Jessica Clarkson",
+    kund: user,
     niva: "",
     stadare: "",
     status: false,
@@ -46,11 +50,34 @@ const FormBooking = () => {
     exists > -1
       ? alert("Kan inte boka! Bokningen finns redan")
       : createBooking(formData);
+    console.log("Här är console loggen för formdata");
+    console.log(formData);
+    // console.log(user);
   };
+
+  const dot = user?.email?.indexOf(".");
+  const dot1 = `${user?.email?.slice(0, 1)}${user?.email}`.indexOf(".");
+  const dot2 = `${user?.email?.slice(0, 2)}${user?.email}`.indexOf(".");
+  const at = user?.email?.indexOf("@");
+  const userFirstName = `${user?.email
+    ?.slice(0, 1)
+    .toUpperCase()}${user?.email?.slice(1, dot)}`;
+  const userLastName = `${user?.email
+    ?.slice(dot1, dot2)
+    .toUpperCase()}${user?.email?.slice(dot2, at)}`;
+
+  useEffect(() => {
+    return () => {
+      console.log(user);
+    };
+  }, []);
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <AuthDetails></AuthDetails>
+      <Typography variant="h5" sx={{ mb: 4 }}>
+        {`Välkommen ${userFirstName} ${userLastName}`}
+      </Typography>
+
       <p className="underrubrik-form">Boka ny Städning:</p>
       <div className="box"></div>
       <div className="box">

@@ -26,11 +26,9 @@ const MyPagesContext = () => {
     const fetchBookings = async () => {
       const currentBookings = await getCurrentBookings();
       setCurrentBookings(currentBookings);
-      console.log(currentBookings);
 
       const completedBookings = await getCompletedBookings();
       setCompletedBookings(completedBookings);
-      console.log(completedBookings);
     };
     fetchBookings();
 

@@ -22,12 +22,11 @@ const FormLogin = () => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
+        // console.log(userCredential);
         navigation("/Mina Sidor");
       })
       .catch((error) => {
         console.log(error);
-        // alert("Fel mail-address eller lösenord");
         setErrorEmail(true);
         setErrorPassword(true);
       });
