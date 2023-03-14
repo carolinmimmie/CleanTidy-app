@@ -1,10 +1,13 @@
 import { Button, Typography } from "@mui/material";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { cBooking, getCurrentBookings } from "../../Api";
 import { INewBooking } from "./interfaces";
 import { MyPagesC } from "../../context/MyPagesContext";
 import { UserContext } from "../../context/UserNameContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase.config";
+import { useNavigate } from "react-router-dom";
 
 const FormBooking = () => {
   const { user } = useContext(UserContext);
@@ -41,15 +44,15 @@ const FormBooking = () => {
   ) => {
     setformData({ ...formData, [event.target.name]: event?.target.value });
   };
-  
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
     const exists = currentBookings.findIndex(
       (x) =>
         x.datum.toDate().toLocaleDateString("sv-SE") ===
-          formData.datum.slice(0, 10) && 
+          formData.datum.slice(0, 10) &&
         x.datum.toDate().toLocaleTimeString("sv-SE").slice(0, 5) ===
-          formData.datum.slice(11) && 
+          formData.datum.slice(11) &&
         x.niva === formData.niva &&
         x.stadare === formData.stadare
     );
@@ -61,11 +64,16 @@ const FormBooking = () => {
     console.log(formData);
   };
 
-  useEffect(() => {
-    return () => {
-      console.log(`Välkommen ${userFirstName} ${userLastName}`);
-    };
-  }, []);
+  const navigation = useNavigate();
+
+  const userSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        navigation("/");
+        console.log("Utloggning lyckad");
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <form className="form" onSubmit={handleSubmit}>
@@ -167,6 +175,18 @@ const FormBooking = () => {
           variant="contained"
         >
           Lägg till bokning
+        </Button>
+
+        <Button
+          onClick={userSignOut}
+          sx={{
+            bgcolor: " rgba(000000, 0, 0, 0.8);",
+            ":hover": { bgcolor: "black ;" },
+            mb: 5,
+          }}
+          variant="contained"
+        >
+          Logga ut
         </Button>
       </div>
     </form>
