@@ -84,8 +84,10 @@ ICurrentbookings) => {
     await cStatus(id);
     // };
     // fetchBooks();
-    const newBookings = await getCompletedBookings();
-    setCompletedBookings(newBookings);
+    const newCompletedBookings = await getCompletedBookings();
+    const newCurrentBookings = await getCurrentBookings();
+    setCompletedBookings(newCompletedBookings);
+    setCurrentBookings(newCurrentBookings);
   };
   const deleteBooking = async (id: string) => {
     // const fetchBooks = async () => {
