@@ -14,6 +14,10 @@ import {
   getCompletedBookings,
   getCurrentBookings,
 } from "../../Api";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserNameContext";
+import { User } from "@firebase/auth";
+
 
 const columns: GridColDef[] = [
   {
@@ -69,11 +73,32 @@ const columns: GridColDef[] = [
   },
 ];
 
+
+
+
 const CurrentBookings = () => {
+  const { user } = useContext(UserContext);
+  
+  const userName = (x: User | null) => {
+    const dot = x?.email?.indexOf(".");
+    const dot1 = `${x?.email?.slice(0, 1)}${x?.email}`.indexOf(".");
+    const dot2 = `${x?.email?.slice(0, 2)}${x?.email}`.indexOf(".");
+    const at = x?.email?.indexOf("@");
+    const userFirstName = `${x?.email
+      ?.slice(0, 1)
+      .toUpperCase()}${x?.email?.slice(1, dot)}`;
+    const userLastName = `${x?.email
+      ?.slice(dot1, dot2)
+      .toUpperCase()}${x?.email?.slice(dot2, at)}`;
+    
+      const fullName = `${userFirstName} ${userLastName}`
+      return(fullName)
+  };
+  
   const changeStatus = async (id: string) => {
     await cStatus(id);
     const newCompletedBookings = await getCompletedBookings();
-    const newCurrentBookings = await getCurrentBookings();
+    const newCurrentBookings = await (await getCurrentBookings());
     setCompletedBookings(newCompletedBookings);
     setCurrentBookings(newCurrentBookings);
   };

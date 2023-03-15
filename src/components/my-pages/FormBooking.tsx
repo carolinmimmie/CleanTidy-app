@@ -5,7 +5,7 @@ import { cBooking, getCurrentBookings } from "../../Api";
 import { INewBooking } from "./interfaces";
 import { MyPagesC } from "../../context/MyPagesContext";
 import { UserContext } from "../../context/UserNameContext";
-import { signOut } from "firebase/auth";
+import { signOut, User } from "firebase/auth";
 import { auth } from "../../firebase.config";
 import { useNavigate } from "react-router-dom";
 
@@ -17,23 +17,40 @@ const FormBooking = () => {
     setCurrentBookings(await getCurrentBookings());
   };
 
-  const dot = user?.email?.indexOf(".");
-  const dot1 = `${user?.email?.slice(0, 1)}${user?.email}`.indexOf(".");
-  const dot2 = `${user?.email?.slice(0, 2)}${user?.email}`.indexOf(".");
-  const at = user?.email?.indexOf("@");
-  const userFirstName = `${user?.email
-    ?.slice(0, 1)
-    .toUpperCase()}${user?.email?.slice(1, dot)}`;
-  const userLastName = `${user?.email
-    ?.slice(dot1, dot2)
-    .toUpperCase()}${user?.email?.slice(dot2, at)}`;
+  const userName = (x: User | null) => {
+    const dot = x?.email?.indexOf(".");
+    const dot1 = `${x?.email?.slice(0, 1)}${x?.email}`.indexOf(".");
+    const dot2 = `${x?.email?.slice(0, 2)}${x?.email}`.indexOf(".");
+    const at = x?.email?.indexOf("@");
+    const userFirstName = `${x?.email
+      ?.slice(0, 1)
+      .toUpperCase()}${x?.email?.slice(1, dot)}`;
+    const userLastName = `${x?.email
+      ?.slice(dot1, dot2)
+      .toUpperCase()}${x?.email?.slice(dot2, at)}`;
+
+    const fullName = `${userFirstName} ${userLastName}`;
+    return fullName;
+  };
+
+  // const dot = user?.email?.indexOf(".");
+  // const dot1 = `${user?.email?.slice(0, 1)}${user?.email}`.indexOf(".");
+  // const dot2 = `${user?.email?.slice(0, 2)}${user?.email}`.indexOf(".");
+  // const at = user?.email?.indexOf("@");
+  // const userFirstName = `${user?.email
+  //   ?.slice(0, 1)
+  //   .toUpperCase()}${user?.email?.slice(1, dot)}`;
+  // const userLastName = `${user?.email
+  //   ?.slice(dot1, dot2)
+  //   .toUpperCase()}${user?.email?.slice(dot2, at)}`;
 
   const { currentBookings, setCurrentBookings } = useContext(MyPagesC);
 
   const [formData, setformData] = useState<INewBooking>({
     id: "",
     datum: "",
-    kund: userFirstName + " " + userLastName,
+    // kund: userFirstName + " " + userLastName,
+    kund: userName(user),
     niva: "",
     stadare: "",
     status: false,
@@ -78,7 +95,7 @@ const FormBooking = () => {
   return (
     <form className="form" onSubmit={handleSubmit}>
       <Typography variant="h5" sx={{ mb: 4 }}>
-        {`Välkommen ${userFirstName} ${userLastName}`}
+        {`Välkommen ${userName(user)}`}
       </Typography>
 
       <p className="underrubrik-form">Boka ny Städning:</p>

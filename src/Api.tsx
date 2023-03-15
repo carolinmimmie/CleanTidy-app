@@ -1,3 +1,4 @@
+import { User } from "@firebase/auth";
 import {
   addDoc,
   collection,
@@ -24,6 +25,8 @@ export const getCompletedBookings = async () => {
     id: doc.id,
   }));
 };
+
+
 
 export const getCurrentBookings = async () => {
   const q = query(bookingsCollectionRef, where("status", "==", false));
