@@ -5,7 +5,8 @@
 ![startsida](readme-ps/1.png)
 ![inloggning](readme-ps/2.png)
 ![bokning](readme-ps/3.png)
-![reserverade tider](readme-ps/4.png)
-![se tider](readme-ps/5.png)
+![bokning finns redan](readme-ps/4.png)
+![reserverade tider](readme-ps/5.png)
+![reserverade tider](readme-ps/6.png)
 
 ### `npm start`
