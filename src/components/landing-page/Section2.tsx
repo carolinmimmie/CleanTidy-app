@@ -21,11 +21,7 @@ const Section2 = () => {
 
         <div className="cirkel-box">
           <div className="cirkel">
-            <img
-              className="cirkel-img"
-              src="https://img.icons8.com/windows/512/login-rounded-down.png"
-              alt="Icon-bild sörsäkring"
-            />
+  
           </div>
           <h4 className="underrubrik">Logga in</h4>
           <p className="cirkel-text">
